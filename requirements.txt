@@ -1,0 +1,6 @@
+pyside6
+networkx
+pandas
+numpy
+pytest
+pyinstaller
