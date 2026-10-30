@@ -2,6 +2,7 @@ from PySide6.QtWidgets import (QHBoxLayout, QLabel, QMainWindow, QVBoxLayout, QW
 
 from ui.dashboard import Dashboard
 from ui.world_map import WorldMap
+from ui.control_panel import ControlPanel
 
 class MainWindow(QMainWindow):
     """Hauptfenster der Anwendung (Karte, Dashboard, Steuerung)."""
@@ -13,7 +14,7 @@ class MainWindow(QMainWindow):
 
         self.world_map = WorldMap()
         self.dashboard = Dashboard()
-        self.controls = QLabel("Steuerung folgt")
+        self.controls = ControlPanel()
 
         oben = QHBoxLayout()
         oben.addWidget(self.world_map, 3)
@@ -26,3 +27,6 @@ class MainWindow(QMainWindow):
         zentrum = QWidget()
         zentrum.setLayout(haupt)
         self.setCentralWidget(zentrum)
+
+        self.controls.start_clicked.connect(lambda: print("Start"))
+        self.controls.strategy_changed.connect(lambda name: print("Strategie:", name))
