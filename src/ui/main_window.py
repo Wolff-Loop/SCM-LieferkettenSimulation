@@ -4,6 +4,7 @@ from ui.dashboard import Dashboard
 from ui.world_map import WorldMap
 from ui.control_panel import ControlPanel
 from ui.scenario_panel import ScenarioPanel
+from ui.backend import FakeBackend
 
 class MainWindow(QMainWindow):
     """Hauptfenster der Anwendung (Karte, Dashboard, Steuerung)."""
@@ -17,6 +18,7 @@ class MainWindow(QMainWindow):
         self.dashboard = Dashboard()
         self.controls = ControlPanel()
         self.scenarios = ScenarioPanel()
+        self.backend = FakeBackend()
 
         rechts = QVBoxLayout()
         rechts.addWidget(self.dashboard, 3)
@@ -34,6 +36,10 @@ class MainWindow(QMainWindow):
         zentrum.setLayout(haupt)
         self.setCentralWidget(zentrum)
 
-        self.controls.start_clicked.connect(lambda: print("Start"))
-        self.controls.strategy_changed.connect(lambda name: print("Strategie:", name))
-        self.scenarios.scenario_toggled.connect(lambda name, aktiv: print("Szenario:", name))
+        self.controls.start_clicked.connect(self.backend.start)
+        self.controls.pause_clicked.connect(self.backend.pause)
+        self.controls.reset_clicked.connect(self.backend.reset)
+        self.controls.stop_clicked.connect(self.backend.stop)
+        self.controls.strategy_changed.connect(self.backend.set_strategy)
+        self.scenarios.scenario_toggled.connect(self.backend.set_scenario)
+        self.backend.snapshot_ready.connect(self.dashboard.update_kpis)
