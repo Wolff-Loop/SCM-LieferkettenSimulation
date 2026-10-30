@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Weltkarte</title>
+  <link rel="stylesheet" href="leaflet.css">
+  <style>
+    html, body, #map { height: 100%; margin: 0; background: #F3F1EE; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="leaflet.js"></script>
+  <script src="world.js"></script>
+  <script>
+    // Karte ohne Online-Kacheln: Laenderflaechen aus world.js (offline lauffaehig)
+    var map = L.map('map', { minZoom: 1, maxZoom: 8, worldCopyJump: true })
+      .setView([30, 15], 2);
+    L.geoJSON(WORLD, {
+      style: { color: '#FFFFFF', weight: 0.6, fillColor: '#E8E3DC', fillOpacity: 1 }
+    }).addTo(map);
+
+    var nodeLayer = L.layerGroup().addTo(map);
+    var routeLayer = L.layerGroup().addTo(map);
+
+    // Wird von Python aufgerufen: nodes = [{name, lat, lon, color}, ...]
+    function setNodes(nodes) {
+      nodeLayer.clearLayers();
+      nodes.forEach(function (n) {
+        L.circleMarker([n.lat, n.lon], {
+          radius: 6, color: '#2E2C2A', weight: 1,
+          fillColor: n.color, fillOpacity: 1
+        }).bindTooltip(n.name).addTo(nodeLayer);
+      });
+    }
+
+    // coords = [[lat, lon], ...], color = '#rrggbb'
+    function drawRoute(coords, color) {
+      L.polyline(coords, { color: color, weight: 3 }).addTo(routeLayer);
+    }
+
+    function clearRoutes() { routeLayer.clearLayers(); }
+  </script>
+</body>
+</html>
