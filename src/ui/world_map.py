@@ -15,6 +15,14 @@ ROUTEN_FARBEN = {
     "BINNENSCHIFF": "#2bb5b0",
 }
 
+KNOTEN_FARBEN = {
+    "LIEFERANT": "#2E2C2A",
+    "FABRIK": "#9C7F5B",
+    "HAFEN": "#6C5B9E",
+    "FLUGHAFEN": "#D77FA1",
+    "TERMINAL": "#8A8178",
+    "LAGER": "#7A8F3A",
+}
 
 class WorldMap(QWebEngineView):
     """Weltkarte: Leaflet in einem eingebetteten Web-Fenster."""
@@ -26,9 +34,20 @@ class WorldMap(QWebEngineView):
 
     def color_for(self, mode):
         return ROUTEN_FARBEN.get(mode, "#8A8178")
+    
+    def node_color(self, typ):
+        return KNOTEN_FARBEN.get(typ, "#8A8178")
 
     def set_nodes(self, nodes):
-        self.page().runJavaScript(f"setNodes({json.dumps(nodes)});")
+        fertig = []
+        for n in nodes:
+            fertig.append({
+                "name": f'{n["name"]} ({n["typ"]})',
+                "lat": n["lat"],
+                "lon": n["lon"],
+                "color": self.node_color(n["typ"]),
+            })
+        self.page().runJavaScript(f"setNodes({json.dumps(fertig)});")
 
     def draw_route(self, coords, mode):
         farbe = self.color_for(mode)

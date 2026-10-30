@@ -47,10 +47,14 @@ class MainWindow(QMainWindow):
 
     def zeige_testdaten(self):
         self.world_map.set_nodes([
-            {"name": "Heilbronn", "lat": 49.14, "lon": 9.22, "color": "#9C7F5B"},
-            {"name": "Rotterdam", "lat": 51.92, "lon": 4.48, "color": "#8A8178"},
-            {"name": "Fremantle", "lat": -32.0, "lon": 115.8, "color": "#2E2C2A"},
+            {"name": "Heilbronn", "lat": 49.14, "lon": 9.22, "typ": "FABRIK"},
+            {"name": "Lager Heilbronn", "lat": 49.17, "lon": 9.25, "typ": "LAGER"},
+            {"name": "Rotterdam", "lat": 51.92, "lon": 4.48, "typ": "HAFEN"},
+            {"name": "Fremantle", "lat": -32.0, "lon": 115.8, "typ": "LIEFERANT"},
+            {"name": "Frankfurt", "lat": 50.04, "lon": 8.56, "typ": "FLUGHAFEN"},
         ])
+
+        # Seeroute Fremantle -> Rotterdam
         self.world_map.draw_route(
             [[-32.0, 115.8], [-10, 95], [5, 78], [12.5, 54], [12.2, 47], [12.5, 43.5],
             [20, 38], [27.5, 34], [29.9, 32.5], [31.3, 32.3], [34, 27], [35, 20],
@@ -58,4 +62,9 @@ class MainWindow(QMainWindow):
             [48.5, -5.5], [49.9, -3], [50.5, 0.5], [51.4, 1.8], [52, 3.0], [51.92, 4.48]],
             "SEESCHIFF",
         )
+        # Binnenschiff Rotterdam -> Heilbronn
         self.world_map.draw_route([[51.92, 4.48], [49.14, 9.22]], "BINNENSCHIFF")
+        # Flugzeug Fremantle -> Frankfurt
+        self.world_map.draw_route([[-32.0, 115.8], [50.04, 8.56]], "FLUGZEUG")
+        # LKW Frankfurt -> Heilbronn
+        self.world_map.draw_route([[50.04, 8.56], [49.14, 9.22]], "LKW")
