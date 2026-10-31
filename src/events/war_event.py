@@ -8,17 +8,16 @@ class WarEvent(Event):
         country: str,
         severity: float = 1.0
     ):
+
         self.country = country
         self.severity = severity
 
+        self.active = False
+
     def apply(self):
 
-        print(
-            f"War active in {self.country}"
-        )
+        self.active = True
 
     def revert(self):
 
-        print(
-            f"War ended in {self.country}"
-        )
+        self.active = False
