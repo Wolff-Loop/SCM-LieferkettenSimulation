@@ -58,18 +58,30 @@ class MainWindow(QMainWindow):
         "FLUGHAFEN": ["Flughafensperrung"],
     }
 
+    SZENARIEN_LAND = ["Krieg", "Naturkatastrophe", "Streik"]
+
     def on_map_click(self, art, name):
-        typ = self.knoten_typen.get(name)
-        szenarien = self.SZENARIEN_JE_TYP.get(typ, [])
+        if art == "country":
+            titel = name
+            szenarien = self.SZENARIEN_LAND
+        else:
+            typ = self.knoten_typen.get(name)
+            titel = f"{name} ({typ})"
+            szenarien = self.SZENARIEN_JE_TYP.get(typ, [])
         if not szenarien:
             return
         menu = QMenu(self)
-        menu.addSection(f"{name} ({typ})")
-        aktionen = {menu.addAction(s): s for s in szenarien}
+        menu.addSection(titel)
+        aktionen = {}
+        for s in szenarien:
+            a = menu.addAction(s)
+            a.setCheckable(True)
+            a.setChecked(self.backend.ist_aktiv(s, name))
+            aktionen[a] = s
         gewaehlt = menu.exec(QCursor.pos())
         if gewaehlt in aktionen:
-            if gewaehlt in aktionen:
-                self.backend.set_scenario(aktionen[gewaehlt], True, ziel=name)
+            s = aktionen[gewaehlt]
+            self.backend.set_scenario(s, not self.backend.ist_aktiv(s, name), ziel=name)
 
     def zeige_testdaten(self):
         knoten = [

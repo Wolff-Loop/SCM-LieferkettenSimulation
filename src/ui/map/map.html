@@ -14,16 +14,6 @@
   <script src="leaflet.js"></script>
   <script src="world.js"></script>
   <script>
-    // Karte ohne Online-Kacheln: Laenderflaechen aus world.js (offline lauffaehig)
-    var map = L.map('map', { minZoom: 1, maxZoom: 8, worldCopyJump: true })
-      .setView([30, 15], 2);
-    L.geoJSON(WORLD, {
-      style: { color: '#FFFFFF', weight: 0.6, fillColor: '#E8E3DC', fillOpacity: 1 }
-    }).addTo(map);
-
-    var nodeLayer = L.layerGroup().addTo(map);
-    var routeLayer = L.layerGroup().addTo(map);
-
     // Bruecke zu Python (QWebChannel). Ohne Kanal bleibt die Karte trotzdem nutzbar.
     var bridge = null;
     if (typeof QWebChannel !== 'undefined' && typeof qt !== 'undefined') {
@@ -35,6 +25,22 @@
       if (bridge) { bridge.on_map_click(art, id); }
     }
 
+    // Karte ohne Online-Kacheln: Laenderflaechen aus world.js (offline lauffaehig)
+    var map = L.map('map', { minZoom: 1, maxZoom: 8, worldCopyJump: true })
+      .setView([30, 15], 2);
+    L.geoJSON(WORLD, {
+      style: { color: '#FFFFFF', weight: 0.6, fillColor: '#E8E3DC', fillOpacity: 1 },
+      onEachFeature: function (feature, layer) {
+        layer.bindTooltip(feature.properties.name, { sticky: true });
+        layer.on('click', function () { melde('country', feature.properties.name); });
+        layer.on('mouseover', function () { layer.setStyle({ fillColor: '#D9D2C7' }); });
+        layer.on('mouseout', function () { layer.setStyle({ fillColor: '#E8E3DC' }); });
+      }
+    }).addTo(map);
+
+    var nodeLayer = L.layerGroup().addTo(map);
+    var routeLayer = L.layerGroup().addTo(map);
+
     // Wird von Python aufgerufen: nodes = [{id, name, lat, lon, color}, ...]
     function setNodes(nodes) {
       nodeLayer.clearLayers();
@@ -42,7 +48,7 @@
         var m = L.circleMarker([n.lat, n.lon], {
           radius: 6, color: '#2E2C2A', weight: 1,
           fillColor: n.color, fillOpacity: 1
-        }).bindTooltip(n.name).addTo(nodeLayer);
+        }).bindTooltip(n.name + ' (' + n.typ + ')').addTo(nodeLayer);
         m.on('click', function () { melde('node', n.id || n.name); });
       });
     }

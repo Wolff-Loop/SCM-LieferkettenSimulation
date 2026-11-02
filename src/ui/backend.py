@@ -54,6 +54,9 @@ class FakeBackend(QObject):
             self.aktive_szenarien.discard(schluessel)
         self.snapshot_ready.emit(self._kpis())
 
+    def ist_aktiv(self, name, ziel=None):
+        return (name, ziel) in self.aktive_szenarien
+
     def _kpis(self):
         basis = BASISWERTE[self.strategie]
         n = len(self.aktive_szenarien)
