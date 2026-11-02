@@ -59,6 +59,7 @@ class MainWindow(QMainWindow):
         "FABRIK": ["Produktionsausfall"],
         "LAGER": ["Lagerausfall"],
         "FLUGHAFEN": ["Flughafensperrung"],
+        "ENGPASS": ["Sperrung"]
     }
 
     SZENARIEN_LAND = ["Krieg", "Naturkatastrophe", "Streik"]
@@ -99,6 +100,8 @@ class MainWindow(QMainWindow):
             {"name": "Rotterdam", "lat": 51.92, "lon": 4.48, "typ": "HAFEN"},
             {"name": "Fremantle", "lat": -32.0, "lon": 115.8, "typ": "LIEFERANT"},
             {"name": "Frankfurt", "lat": 50.04, "lon": 8.56, "typ": "FLUGHAFEN"},
+            {"name": "Suezkanal", "lat": 30.5, "lon": 32.3, "typ": "ENGPASS"},
+            {"name": "Panamakanal", "lat": 9.1, "lon": -79.7, "typ": "ENGPASS"},
         ]
         self.knoten_typen = {k["name"]: k["typ"] for k in knoten}
         self.world_map.set_nodes(knoten)

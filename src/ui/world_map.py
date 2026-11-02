@@ -31,6 +31,7 @@ KNOTEN_FARBEN = {
     "FLUGHAFEN": "#D77FA1",
     "TERMINAL": "#8A8178",
     "LAGER": "#7A8F3A",
+    "ENGPASS": "#3D5A80",
 }
 
 class WorldMap(QWebEngineView):
