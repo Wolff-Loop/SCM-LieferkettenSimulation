@@ -68,7 +68,8 @@ class MainWindow(QMainWindow):
         aktionen = {menu.addAction(s): s for s in szenarien}
         gewaehlt = menu.exec(QCursor.pos())
         if gewaehlt in aktionen:
-            print("Szenario ausgelöst:", aktionen[gewaehlt], "bei", name)
+            if gewaehlt in aktionen:
+                self.backend.set_scenario(aktionen[gewaehlt], True, ziel=name)
 
     def zeige_testdaten(self):
         knoten = [

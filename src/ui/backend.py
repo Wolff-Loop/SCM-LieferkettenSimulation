@@ -33,8 +33,7 @@ class FakeBackend(QObject):
         self.timer.stop()
 
     def reset(self):
-        # DEINE AUFGABE: siehe unten
-        pass
+        self.timer.stop()
 
     def stop(self):
         self.timer.stop()
@@ -47,9 +46,13 @@ class FakeBackend(QObject):
         self.strategie = name
         self.snapshot_ready.emit(self._kpis())
 
-    def set_scenario(self, name, aktiv):
-        # DEINE AUFGABE: siehe unten
-        pass
+    def set_scenario(self, name, aktiv, ziel=None):
+        schluessel = (name, ziel)
+        if aktiv:
+            self.aktive_szenarien.add(schluessel)
+        else:
+            self.aktive_szenarien.discard(schluessel)
+        self.snapshot_ready.emit(self._kpis())
 
     def _kpis(self):
         basis = BASISWERTE[self.strategie]
