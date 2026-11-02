@@ -3,6 +3,15 @@ from pathlib import Path
 
 from PySide6.QtCore import QUrl
 from PySide6.QtWebEngineWidgets import QWebEngineView
+from PySide6.QtCore import QObject, Signal, Slot
+from PySide6.QtWebChannel import QWebChannel
+
+class MapBridge(QObject):
+    clicked = Signal(str, str)          # Art ("node") und Id
+
+    @Slot(str, str)
+    def on_map_click(self, art, id_):
+        self.clicked.emit(art, id_)
 
 MAP_HTML = Path(__file__).parent / "map" / "map.html"
 
@@ -27,10 +36,18 @@ KNOTEN_FARBEN = {
 class WorldMap(QWebEngineView):
     """Weltkarte: Leaflet in einem eingebetteten Web-Fenster."""
 
+    map_clicked = Signal(str, str)
+
     def __init__(self):
         super().__init__()
         self.setMinimumSize(600, 400)
         self.load(QUrl.fromLocalFile(str(MAP_HTML)))
+
+        self.bridge = MapBridge()
+        self.channel = QWebChannel(self)
+        self.channel.registerObject("bridge", self.bridge)
+        self.page().setWebChannel(self.channel)
+        self.bridge.clicked.connect(self.map_clicked)
 
     def color_for(self, mode):
         return ROUTEN_FARBEN.get(mode, "#8A8178")
@@ -42,6 +59,7 @@ class WorldMap(QWebEngineView):
         fertig = []
         for n in nodes:
             fertig.append({
+                "id": n["name"],
                 "name": f'{n["name"]} ({n["typ"]})',
                 "lat": n["lat"],
                 "lon": n["lon"],
@@ -57,3 +75,7 @@ class WorldMap(QWebEngineView):
 
     def clear_routes(self):
         self.page().runJavaScript("clearRoutes();")
+
+    
+
+    

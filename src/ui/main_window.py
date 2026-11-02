@@ -5,6 +5,8 @@ from ui.world_map import WorldMap
 from ui.control_panel import ControlPanel
 from ui.scenario_panel import ScenarioPanel
 from ui.backend import FakeBackend
+from PySide6.QtGui import QCursor
+from PySide6.QtWidgets import QMenu
 
 class MainWindow(QMainWindow):
     """Hauptfenster der Anwendung (Karte, Dashboard, Steuerung)."""
@@ -36,6 +38,8 @@ class MainWindow(QMainWindow):
         zentrum.setLayout(haupt)
         self.setCentralWidget(zentrum)
 
+        self.knoten_typen = {}
+
         self.controls.start_clicked.connect(self.backend.start)
         self.controls.pause_clicked.connect(self.backend.pause)
         self.controls.reset_clicked.connect(self.backend.reset)
@@ -44,15 +48,38 @@ class MainWindow(QMainWindow):
         self.scenarios.scenario_toggled.connect(self.backend.set_scenario)
         self.backend.snapshot_ready.connect(self.dashboard.update_kpis)
         self.world_map.loadFinished.connect(self.zeige_testdaten)
+        self.world_map.map_clicked.connect(self.on_map_click)
+
+    SZENARIEN_JE_TYP = {
+        "LIEFERANT": ["Lieferantenausfall"],
+        "HAFEN": ["Hafenstreik"],
+        "FABRIK": ["Produktionsausfall"],
+        "LAGER": ["Lagerausfall"],
+        "FLUGHAFEN": ["Flughafensperrung"],
+    }
+
+    def on_map_click(self, art, name):
+        typ = self.knoten_typen.get(name)
+        szenarien = self.SZENARIEN_JE_TYP.get(typ, [])
+        if not szenarien:
+            return
+        menu = QMenu(self)
+        menu.addSection(f"{name} ({typ})")
+        aktionen = {menu.addAction(s): s for s in szenarien}
+        gewaehlt = menu.exec(QCursor.pos())
+        if gewaehlt in aktionen:
+            print("Szenario ausgelöst:", aktionen[gewaehlt], "bei", name)
 
     def zeige_testdaten(self):
-        self.world_map.set_nodes([
+        knoten = [
             {"name": "Heilbronn", "lat": 49.14, "lon": 9.22, "typ": "FABRIK"},
             {"name": "Lager Heilbronn", "lat": 49.17, "lon": 9.25, "typ": "LAGER"},
             {"name": "Rotterdam", "lat": 51.92, "lon": 4.48, "typ": "HAFEN"},
             {"name": "Fremantle", "lat": -32.0, "lon": 115.8, "typ": "LIEFERANT"},
             {"name": "Frankfurt", "lat": 50.04, "lon": 8.56, "typ": "FLUGHAFEN"},
-        ])
+        ]
+        self.knoten_typen = {k["name"]: k["typ"] for k in knoten}
+        self.world_map.set_nodes(knoten)
 
         # Seeroute Fremantle -> Rotterdam
         self.world_map.draw_route(

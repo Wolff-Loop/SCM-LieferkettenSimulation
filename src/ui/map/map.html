@@ -10,6 +10,7 @@
 </head>
 <body>
   <div id="map"></div>
+  <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
   <script src="leaflet.js"></script>
   <script src="world.js"></script>
   <script>
@@ -23,14 +24,26 @@
     var nodeLayer = L.layerGroup().addTo(map);
     var routeLayer = L.layerGroup().addTo(map);
 
-    // Wird von Python aufgerufen: nodes = [{name, lat, lon, color}, ...]
+    // Bruecke zu Python (QWebChannel). Ohne Kanal bleibt die Karte trotzdem nutzbar.
+    var bridge = null;
+    if (typeof QWebChannel !== 'undefined' && typeof qt !== 'undefined') {
+      new QWebChannel(qt.webChannelTransport, function (channel) {
+        bridge = channel.objects.bridge;
+      });
+    }
+    function melde(art, id) {
+      if (bridge) { bridge.on_map_click(art, id); }
+    }
+
+    // Wird von Python aufgerufen: nodes = [{id, name, lat, lon, color}, ...]
     function setNodes(nodes) {
       nodeLayer.clearLayers();
       nodes.forEach(function (n) {
-        L.circleMarker([n.lat, n.lon], {
+        var m = L.circleMarker([n.lat, n.lon], {
           radius: 6, color: '#2E2C2A', weight: 1,
           fillColor: n.color, fillOpacity: 1
         }).bindTooltip(n.name).addTo(nodeLayer);
+        m.on('click', function () { melde('node', n.id || n.name); });
       });
     }
 
