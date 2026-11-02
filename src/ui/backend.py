@@ -57,6 +57,9 @@ class FakeBackend(QObject):
     def ist_aktiv(self, name, ziel=None):
         return (name, ziel) in self.aktive_szenarien
 
+    def aktive_ziele(self):
+        return {ziel for (_, ziel) in self.aktive_szenarien if ziel}
+
     def _kpis(self):
         basis = BASISWERTE[self.strategie]
         n = len(self.aktive_szenarien)
@@ -69,3 +72,4 @@ class FakeBackend(QObject):
             "risk_score": min(100, 20 + 15 * n),
             "service_level": max(0, 98 - 6 * n),
         }
+    

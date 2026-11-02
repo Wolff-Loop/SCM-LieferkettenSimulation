@@ -76,6 +76,9 @@ class WorldMap(QWebEngineView):
     def clear_routes(self):
         self.page().runJavaScript("clearRoutes();")
 
-    
+    def set_highlights(self, knoten, laender):
+        self.page().runJavaScript(
+            f"setHighlights({json.dumps(knoten)}, {json.dumps(laender)});"
+        )
 
     

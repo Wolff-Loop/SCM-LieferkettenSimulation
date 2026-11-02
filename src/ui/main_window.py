@@ -8,6 +8,8 @@ from ui.backend import FakeBackend
 from PySide6.QtGui import QCursor
 from PySide6.QtWidgets import QMenu
 
+import json
+
 class MainWindow(QMainWindow):
     """Hauptfenster der Anwendung (Karte, Dashboard, Steuerung)."""
 
@@ -49,6 +51,7 @@ class MainWindow(QMainWindow):
         self.backend.snapshot_ready.connect(self.dashboard.update_kpis)
         self.world_map.loadFinished.connect(self.zeige_testdaten)
         self.world_map.map_clicked.connect(self.on_map_click)
+        self.backend.snapshot_ready.connect(self.aktualisiere_markierungen)
 
     SZENARIEN_JE_TYP = {
         "LIEFERANT": ["Lieferantenausfall"],
@@ -82,6 +85,12 @@ class MainWindow(QMainWindow):
         if gewaehlt in aktionen:
             s = aktionen[gewaehlt]
             self.backend.set_scenario(s, not self.backend.ist_aktiv(s, name), ziel=name)
+
+    def aktualisiere_markierungen(self, *_):
+        ziele = self.backend.aktive_ziele()
+        knoten = [z for z in ziele if z in self.knoten_typen]
+        laender = [z for z in ziele if z not in self.knoten_typen]
+        self.world_map.set_highlights(knoten, laender)
 
     def zeige_testdaten(self):
         knoten = [
