@@ -17,6 +17,8 @@ class Shipment:
     destination: str
     quantity: int
     route_id: str | None = None
+    current_location: str | None = None
+    progress_percent: float = 0
     status: ShipmentStatus = (
         ShipmentStatus.PREPARING
     )
