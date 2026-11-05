@@ -37,6 +37,7 @@ class FakeBackend(QObject):
     def reset(self):
         self.timer.stop()
         self.tag = 0
+        self.aktive_szenarien.clear()
         self.rng = random.Random(1)
         self.snapshot_ready.emit(self._kpis())
 
@@ -64,6 +65,9 @@ class FakeBackend(QObject):
 
     def aktive_ziele(self):
         return {ziel for (_, ziel) in self.aktive_szenarien if ziel}
+    
+    def ist_irgendwo_aktiv(self, name):
+        return any(n == name for (n, _) in self.aktive_szenarien)
 
     def _werte(self, n, rauschen):
         """Kennzahlen für n aktive Szenarien (n=0: Referenz ohne Störung)."""

@@ -61,6 +61,7 @@ class MainWindow(QMainWindow):
         self.world_map.loadFinished.connect(self.zeige_testdaten)
         self.world_map.map_clicked.connect(self.on_map_click)
         self.backend.snapshot_ready.connect(self.aktualisiere_markierungen)
+        self.backend.snapshot_ready.connect(lambda *_: self.scenarios.aktualisiere(self.backend))
 
     SZENARIEN_JE_TYP = {
         "LIEFERANT": ["Lieferantenausfall"],
