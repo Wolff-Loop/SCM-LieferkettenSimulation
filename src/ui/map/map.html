@@ -5,7 +5,7 @@
   <title>Weltkarte</title>
   <link rel="stylesheet" href="leaflet.css">
   <style>
-    html, body, #map { height: 100%; margin: 0; background: #F3F1EE; }
+    html, body, #map { height: 100%; margin: 0; background: #BFD7EA; }
   </style>
 </head>
 <body>
@@ -28,9 +28,9 @@
     // Karte ohne Online-Kacheln: Laenderflaechen aus world.js (offline lauffaehig)
     var map = L.map('map', { minZoom: 1, maxZoom: 8, worldCopyJump: true })
       .setView([30, 15], 2);
-    // Markierung betroffener Ziele (Szenario aktiv)
-    var BASIS_FILL = '#E8E3DC', HOVER_FILL = '#D9D2C7';
-    var AKTIV_FILL = '#F6C9B0', AKTIV_HOVER = '#F0B491', AKTIV_FARBE = '#E8743B';
+    // Farben: Land beige, Hover dunkler, aktives Szenario in gedaempftem Rot
+    var BASIS_FILL = '#E8DFCB', HOVER_FILL = '#D6CAB0';
+    var AKTIV_FILL = '#E3A9A3', AKTIV_HOVER = '#D6918A', AKTIV_FARBE = '#B5473F';
     var aktiveKnoten = [], aktiveLaender = [];
     var countryLayers = {}, nodeMarkers = {};
 
@@ -91,7 +91,6 @@
 
     // Wird von Python aufgerufen: Namen der betroffenen Knoten und Laender
     function setHighlights(knoten, laender) {
-      var alt = aktiveLaender.concat(aktiveKnoten);
       aktiveKnoten = knoten; aktiveLaender = laender;
       Object.keys(countryLayers).forEach(function (n) { styleLand(n, false); });
       Object.keys(nodeMarkers).forEach(function (k) { styleKnoten(k); });
