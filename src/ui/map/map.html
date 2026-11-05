@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Weltkarte</title>
+  <link rel="stylesheet" href="leaflet.css">
+  <style>
+    html, body, #map { height: 100%; margin: 0; background: #F3F1EE; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+  <script src="leaflet.js"></script>
+  <script src="world.js"></script>
+  <script>
+    // Bruecke zu Python (QWebChannel). Ohne Kanal bleibt die Karte trotzdem nutzbar.
+    var bridge = null;
+    if (typeof QWebChannel !== 'undefined' && typeof qt !== 'undefined') {
+      new QWebChannel(qt.webChannelTransport, function (channel) {
+        bridge = channel.objects.bridge;
+      });
+    }
+    function melde(art, id) {
+      if (bridge) { bridge.on_map_click(art, id); }
+    }
+
+    // Karte ohne Online-Kacheln: Laenderflaechen aus world.js (offline lauffaehig)
+    var map = L.map('map', { minZoom: 1, maxZoom: 8, worldCopyJump: true })
+      .setView([30, 15], 2);
+    // Markierung betroffener Ziele (Szenario aktiv)
+    var BASIS_FILL = '#E8E3DC', HOVER_FILL = '#D9D2C7';
+    var AKTIV_FILL = '#F6C9B0', AKTIV_HOVER = '#F0B491', AKTIV_FARBE = '#E8743B';
+    var aktiveKnoten = [], aktiveLaender = [];
+    var countryLayers = {}, nodeMarkers = {};
+
+    function styleLand(name, hover) {
+      var aktiv = aktiveLaender.indexOf(name) >= 0;
+      var l = countryLayers[name];
+      if (!l) { return; }
+      l.setStyle({
+        fillColor: aktiv ? (hover ? AKTIV_HOVER : AKTIV_FILL) : (hover ? HOVER_FILL : BASIS_FILL),
+        color: aktiv ? AKTIV_FARBE : '#FFFFFF',
+        weight: aktiv ? 1.8 : 0.6
+      });
+    }
+    function styleKnoten(id) {
+      var m = nodeMarkers[id];
+      if (!m) { return; }
+      var aktiv = aktiveKnoten.indexOf(id) >= 0;
+      m.setStyle({ color: aktiv ? AKTIV_FARBE : '#2E2C2A', weight: aktiv ? 4 : 1 });
+      m.setRadius(aktiv ? 9 : 6);
+      if (aktiv) { m.bringToFront(); }
+    }
+
+    L.geoJSON(WORLD, {
+      style: { color: '#FFFFFF', weight: 0.6, fillColor: BASIS_FILL, fillOpacity: 1 },
+      onEachFeature: function (feature, layer) {
+        var name = feature.properties.name;
+        countryLayers[name] = layer;
+        layer.bindTooltip(name, { sticky: true });
+        layer.on('click', function () { melde('country', name); });
+        layer.on('mouseover', function () { styleLand(name, true); });
+        layer.on('mouseout', function () { styleLand(name, false); });
+      }
+    }).addTo(map);
+
+    var nodeLayer = L.layerGroup().addTo(map);
+    var routeLayer = L.layerGroup().addTo(map);
+
+    // Wird von Python aufgerufen: nodes = [{id, name, lat, lon, color}, ...]
+    function setNodes(nodes) {
+      nodeLayer.clearLayers();
+      nodeMarkers = {};
+      nodes.forEach(function (n) {
+        var m = L.circleMarker([n.lat, n.lon], {
+          radius: 6, color: '#2E2C2A', weight: 1,
+          fillColor: n.color, fillOpacity: 1
+        }).bindTooltip(n.name + ' (' + n.typ + ')').addTo(nodeLayer);
+        var key = n.id || n.name;
+        nodeMarkers[key] = m;
+        styleKnoten(key);
+        m.on('click', function () { melde('node', key); });
+      });
+    }
+
+    // coords = [[lat, lon], ...], color = '#rrggbb'
+    function drawRoute(coords, color) {
+      L.polyline(coords, { color: color, weight: 3 }).addTo(routeLayer);
+    }
+
+    // Wird von Python aufgerufen: Namen der betroffenen Knoten und Laender
+    function setHighlights(knoten, laender) {
+      var alt = aktiveLaender.concat(aktiveKnoten);
+      aktiveKnoten = knoten; aktiveLaender = laender;
+      Object.keys(countryLayers).forEach(function (n) { styleLand(n, false); });
+      Object.keys(nodeMarkers).forEach(function (k) { styleKnoten(k); });
+    }
+
+    function clearRoutes() { routeLayer.clearLayers(); }
+  </script>
+</body>
+</html>
