@@ -7,6 +7,8 @@ from ui.scenario_panel import ScenarioPanel
 from ui.backend import FakeBackend
 from PySide6.QtGui import QCursor
 from PySide6.QtWidgets import QMenu
+from PySide6.QtWidgets import QTabWidget
+from ui.analysis_view import AnalysisView
 
 import json
 
@@ -22,6 +24,7 @@ class MainWindow(QMainWindow):
         self.dashboard = Dashboard()
         self.controls = ControlPanel()
         self.scenarios = ScenarioPanel()
+        self.analysis = AnalysisView()
         self.backend = FakeBackend()
 
         rechts = QVBoxLayout()
@@ -36,22 +39,29 @@ class MainWindow(QMainWindow):
         haupt.addLayout(oben, 5)
         haupt.addWidget(self.controls, 1)
 
-        zentrum = QWidget()
-        zentrum.setLayout(haupt)
-        self.setCentralWidget(zentrum)
+        hauptseite = QWidget()
+        hauptseite.setLayout(haupt)
+
+        tabs = QTabWidget()
+        tabs.addTab(hauptseite, "Simulation")
+        tabs.addTab(self.analysis, "Auswertung")
+        self.setCentralWidget(tabs)
 
         self.knoten_typen = {}
 
         self.controls.start_clicked.connect(self.backend.start)
         self.controls.pause_clicked.connect(self.backend.pause)
         self.controls.reset_clicked.connect(self.backend.reset)
+        self.controls.reset_clicked.connect(self.analysis.reset)
         self.controls.stop_clicked.connect(self.backend.stop)
         self.controls.strategy_changed.connect(self.backend.set_strategy)
         self.scenarios.scenario_toggled.connect(self.backend.set_scenario)
         self.backend.snapshot_ready.connect(self.dashboard.update_kpis)
+        self.backend.snapshot_ready.connect(self.analysis.add_snapshot)
         self.world_map.loadFinished.connect(self.zeige_testdaten)
         self.world_map.map_clicked.connect(self.on_map_click)
         self.backend.snapshot_ready.connect(self.aktualisiere_markierungen)
+        self.backend.snapshot_ready.connect(lambda *_: self.scenarios.aktualisiere(self.backend))
 
     SZENARIEN_JE_TYP = {
         "LIEFERANT": ["Lieferantenausfall"],

@@ -1,4 +1,5 @@
 from PySide6.QtCore import QObject, QTimer, Signal
+import random
 
 BASISWERTE = {
     "FASTEST": {"kosten": 120.0, "zeit": 20},
@@ -20,6 +21,7 @@ class FakeBackend(QObject):
     def __init__(self):
         super().__init__()
         self.tag = 0
+        self.rng = random.Random(1)  # festes Seed: Testläufe sind reproduzierbar
         self.strategie = "FASTEST"
         self.aktive_szenarien = set()
         self.timer = QTimer(self)
@@ -34,6 +36,10 @@ class FakeBackend(QObject):
 
     def reset(self):
         self.timer.stop()
+        self.tag = 0
+        self.aktive_szenarien.clear()
+        self.rng = random.Random(1)
+        self.snapshot_ready.emit(self._kpis())
 
     def stop(self):
         self.timer.stop()
@@ -59,17 +65,27 @@ class FakeBackend(QObject):
 
     def aktive_ziele(self):
         return {ziel for (_, ziel) in self.aktive_szenarien if ziel}
+    
+    def ist_irgendwo_aktiv(self, name):
+        return any(n == name for (n, _) in self.aktive_szenarien)
 
-    def _kpis(self):
+    def _werte(self, n, rauschen):
+        """Kennzahlen für n aktive Szenarien (n=0: Referenz ohne Störung)."""
         basis = BASISWERTE[self.strategie]
-        n = len(self.aktive_szenarien)
         faktor = 1 + 0.15 * n
         return {
-            "total_cost": round(basis["kosten"] * faktor + self.tag, 1),
-            "transport_cost": round(basis["kosten"] * 0.6 * faktor, 1),
-            "co2_emissions": round(10 + 0.2 * self.tag, 1),
-            "lead_time": basis["zeit"] + 4 * n,
+            "total_cost": round(basis["kosten"] * faktor + self.tag + rauschen * 2, 1),
+            "transport_cost": round(basis["kosten"] * 0.6 * faktor + rauschen, 1),
+            "co2_emissions": round(10 + 0.2 * self.tag + rauschen * 0.3, 1),
+            "lead_time": round(basis["zeit"] + 4 * n + rauschen, 1),
             "risk_score": min(100, 20 + 15 * n),
-            "service_level": max(0, 98 - 6 * n),
+            "service_level": round(max(0, 98 - 6 * n + rauschen), 1),
         }
+
+    def _kpis(self):
+        rauschen = self.rng.uniform(-1, 1)  # dieselbe Schwankung für beide Linien
+        kpis = self._werte(len(self.aktive_szenarien), rauschen)
+        kpis["tag"] = self.tag
+        kpis["referenz"] = self._werte(0, rauschen)
+        return kpis
     
