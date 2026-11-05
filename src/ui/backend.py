@@ -65,13 +65,11 @@ class FakeBackend(QObject):
     def aktive_ziele(self):
         return {ziel for (_, ziel) in self.aktive_szenarien if ziel}
 
-    def _kpis(self):
+    def _werte(self, n, rauschen):
+        """Kennzahlen für n aktive Szenarien (n=0: Referenz ohne Störung)."""
         basis = BASISWERTE[self.strategie]
-        n = len(self.aktive_szenarien)
         faktor = 1 + 0.15 * n
-        rauschen = self.rng.uniform(-1, 1)  # kleine Schwankung, damit Verläufe sichtbar sind
         return {
-            "tag": self.tag,
             "total_cost": round(basis["kosten"] * faktor + self.tag + rauschen * 2, 1),
             "transport_cost": round(basis["kosten"] * 0.6 * faktor + rauschen, 1),
             "co2_emissions": round(10 + 0.2 * self.tag + rauschen * 0.3, 1),
@@ -79,4 +77,11 @@ class FakeBackend(QObject):
             "risk_score": min(100, 20 + 15 * n),
             "service_level": round(max(0, 98 - 6 * n + rauschen), 1),
         }
+
+    def _kpis(self):
+        rauschen = self.rng.uniform(-1, 1)  # dieselbe Schwankung für beide Linien
+        kpis = self._werte(len(self.aktive_szenarien), rauschen)
+        kpis["tag"] = self.tag
+        kpis["referenz"] = self._werte(0, rauschen)
+        return kpis
     

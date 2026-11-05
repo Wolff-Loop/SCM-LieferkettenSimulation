@@ -1,51 +1,70 @@
 from PySide6.QtCharts import QChart, QChartView, QLineSeries, QValueAxis
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QPainter
+from PySide6.QtGui import QColor, QPainter, QPen
 from PySide6.QtWidgets import QGridLayout, QWidget
 
-from ui.dashboard import KPI_NAMEN  # Importpfad ggf. an dein Projekt anpassen
+from ui.dashboard import KPI_NAMEN  
 
 
 class KpiChart(QChartView):
-    """Ein Liniendiagramm für eine Kennzahl über die Zeit."""
+    """Liniendiagramm einer Kennzahl: aktueller Lauf gegen Referenz ohne Szenario."""
 
     def __init__(self, titel):
         # Diagramm zuerst bauen, dann an die View übergeben
-        serie = QLineSeries()
+        referenz = QLineSeries()
+        referenz.setName("ohne Szenario")
+        referenz.setPen(QPen(QColor("#888888"), 2, Qt.DashLine))
+        aktuell = QLineSeries()
+        aktuell.setName("aktuell")
+        aktuell.setPen(QPen(QColor("#0F3CDC"), 2))
         achse_x = QValueAxis()
         achse_y = QValueAxis()
+        achse_x.setLabelFormat("%d")
+        achse_x.setTickType(QValueAxis.TicksDynamic)
+        achse_x.setTickAnchor(0)
+        achse_x.setTickInterval(10)
         chart = QChart()
-        chart.addSeries(serie)
+        for serie in (referenz, aktuell):  # Referenz zuerst, damit "aktuell" oben liegt
+            chart.addSeries(serie)
         chart.addAxis(achse_x, Qt.AlignBottom)
         chart.addAxis(achse_y, Qt.AlignLeft)
-        serie.attachAxis(achse_x)
-        serie.attachAxis(achse_y)
+        for serie in (referenz, aktuell):
+            serie.attachAxis(achse_x)
+            serie.attachAxis(achse_y)
         chart.setTitle(titel)
-        chart.legend().hide()
+        chart.legend().setAlignment(Qt.AlignBottom)
         super().__init__(chart)
         self.setRenderHint(QPainter.Antialiasing)
-        self.serie = serie
+        self.aktuell = aktuell
+        self.referenz = referenz
         self.achse_x = achse_x
         self.achse_y = achse_y
 
-    def add_point(self, x, y):
-        n = self.serie.count()
-        if n > 0 and self.serie.at(n - 1).x() == x:
-            self.serie.replace(n - 1, x, y)  # gleicher Tag: letzten Punkt aktualisieren
+    @staticmethod
+    def _setze(serie, x, y):
+        n = serie.count()
+        if n > 0 and serie.at(n - 1).x() == x:
+            serie.replace(n - 1, x, y)  # gleicher Tag: letzten Punkt aktualisieren
         else:
-            self.serie.append(x, y)
+            serie.append(x, y)
+
+    def add_point(self, x, y, y_referenz=None):
+        self._setze(self.aktuell, x, y)
+        if y_referenz is not None:
+            self._setze(self.referenz, x, y_referenz)
         self.achse_x.setRange(0, max(x, 1))
-        ys = [p.y() for p in self.serie.points()]
+        ys = [p.y() for s in (self.aktuell, self.referenz) for p in s.points()]
         unten, oben = min(ys), max(ys)
         rand = (oben - unten) * 0.1 or 1
         self.achse_y.setRange(unten - rand, oben + rand)
 
     def clear(self):
-        self.serie.clear()
+        self.aktuell.clear()
+        self.referenz.clear()
 
 
 class AnalysisView(QWidget):
-    """Tab 'Auswertung': Verlauf aller Kennzahlen über die Simulation."""
+    """Tab 'Auswertung': Verlauf aller Kennzahlen, aktuell gegen Referenz."""
 
     def __init__(self):
         super().__init__()
@@ -64,12 +83,19 @@ class AnalysisView(QWidget):
         if tag < self.letzter_tag:  # Simulation wurde zurückgesetzt
             self.reset()
         self.letzter_tag = tag
-        for schluessel, wert in kpis.items():
-            if schluessel in self.charts:
-                try:
-                    self.charts[schluessel].add_point(tag, float(wert))
-                except (TypeError, ValueError):
-                    pass
+        referenz = kpis.get("referenz", {})
+        for schluessel, chart in self.charts.items():
+            if schluessel not in kpis:
+                continue
+            try:
+                ref = referenz.get(schluessel)
+                chart.add_point(
+                    tag,
+                    float(kpis[schluessel]),
+                    float(ref) if ref is not None else None,
+                )
+            except (TypeError, ValueError):
+                pass
 
     def reset(self):
         self.letzter_tag = -1
