@@ -68,10 +68,10 @@ class WorldMap(QWebEngineView):
             })
         self.page().runJavaScript(f"setNodes({json.dumps(fertig)});")
 
-    def draw_route(self, coords, mode):
+    def draw_route(self, coords, mode, route_id=None):
         farbe = self.color_for(mode)
         self.page().runJavaScript(
-            f"drawRoute({json.dumps(coords)}, {json.dumps(farbe)});"
+            f"drawRoute({json.dumps(coords)}, {json.dumps(farbe)}, {json.dumps(route_id)});"
         )
 
     def clear_routes(self):
@@ -82,4 +82,7 @@ class WorldMap(QWebEngineView):
             f"setHighlights({json.dumps(knoten)}, {json.dumps(laender)});"
         )
 
-    
+    def set_shipments(self, sendungen):
+        daten = [dict(s, color=self.color_for(s["modus"])) for s in sendungen]
+        self.page().runJavaScript(f"setShipments({json.dumps(daten)});")
+        

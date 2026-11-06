@@ -8,6 +8,17 @@ BASISWERTE = {
     "MOST_RESILIENT": {"kosten": 110.0, "zeit": 27},
 }
 
+# Testwerte: Tage pro Strecke je Verkehrsmittel
+TRANSPORTZEIT = {"SEESCHIFF": 30, "LKW": 5, "ZUG": 10, "BINNENSCHIFF": 8, "FLUGZEUG": 2}
+
+# Die IDs müssen zu den Routen in zeige_testdaten passen, die Modi zu ROUTEN_FARBEN
+TESTROUTEN = [
+    {"id": "see", "modus": "SEESCHIFF", "ware": "Uhrwerk"},
+    {"id": "binnen", "modus": "BINNENSCHIFF", "ware": "Uhrwerk"},
+    {"id": "luft", "modus": "FLUGZEUG", "ware": "Uhrwerk"},
+    {"id": "lkw", "modus": "LKW", "ware": "Gehäuse"},
+]
+
 
 class FakeBackend(QObject):
     """Testdaten statt echter Simulation (TESTWERTE, keine Ergebnisse).
@@ -21,6 +32,8 @@ class FakeBackend(QObject):
     def __init__(self):
         super().__init__()
         self.tag = 0
+        self.sendungen = []
+        self.naechste_id = 1
         self.rng = random.Random(1)  # festes Seed: Testläufe sind reproduzierbar
         self.strategie = "FASTEST"
         self.aktive_szenarien = set()
@@ -37,6 +50,8 @@ class FakeBackend(QObject):
     def reset(self):
         self.timer.stop()
         self.tag = 0
+        self.sendungen = []
+        self.naechste_id = 1
         self.aktive_szenarien.clear()
         self.rng = random.Random(1)
         self.snapshot_ready.emit(self._kpis())
@@ -46,6 +61,7 @@ class FakeBackend(QObject):
 
     def step(self):
         self.tag += 1
+        self._sendungen_bewegen()
         self.snapshot_ready.emit(self._kpis())
 
     def set_strategy(self, name):
@@ -87,5 +103,17 @@ class FakeBackend(QObject):
         kpis = self._werte(len(self.aktive_szenarien), rauschen)
         kpis["tag"] = self.tag
         kpis["referenz"] = self._werte(0, rauschen)
+        kpis["sendungen"] = [dict(s) for s in self.sendungen]
         return kpis
     
+    def _sendungen_bewegen(self):
+        for s in self.sendungen:
+            s["fortschritt"] = min(1.0, s["fortschritt"] + 1 / TRANSPORTZEIT[s["modus"]])
+        self.sendungen = [s for s in self.sendungen if s["fortschritt"] < 1.0]  # Angekommene entfernen
+        if self.tag % 5 == 1:  # alle 5 Tage startet je Route eine neue Sendung
+            for r in TESTROUTEN:
+                self.sendungen.append({
+                    "id": self.naechste_id, "route": r["id"], "fortschritt": 0.0,
+                    "modus": r["modus"], "ware": r["ware"],
+                })
+                self.naechste_id += 1
