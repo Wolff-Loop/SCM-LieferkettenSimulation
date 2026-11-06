@@ -62,6 +62,7 @@ class MainWindow(QMainWindow):
         self.world_map.map_clicked.connect(self.on_map_click)
         self.backend.snapshot_ready.connect(self.aktualisiere_markierungen)
         self.backend.snapshot_ready.connect(lambda *_: self.scenarios.aktualisiere(self.backend))
+        self.backend.snapshot_ready.connect(self.aktualisiere_sendungen)
 
     SZENARIEN_JE_TYP = {
         "LIEFERANT": ["Lieferantenausfall"],
@@ -103,6 +104,9 @@ class MainWindow(QMainWindow):
         laender = [z for z in ziele if z not in self.knoten_typen]
         self.world_map.set_highlights(knoten, laender)
 
+    def aktualisiere_sendungen(self, snapshot):
+        self.world_map.set_shipments(snapshot.get("sendungen", []))
+
     def zeige_testdaten(self):
         knoten = [
             {"name": "Heilbronn", "lat": 49.14, "lon": 9.22, "typ": "FABRIK"},
@@ -122,11 +126,11 @@ class MainWindow(QMainWindow):
             [20, 38], [27.5, 34], [29.9, 32.5], [31.3, 32.3], [34, 27], [35, 20],
             [37.8, 9], [38, 0], [36.3, -2], [35.95, -5.5], [36.5, -9.5], [43.5, -9.8],
             [48.5, -5.5], [49.9, -3], [50.5, 0.5], [51.4, 1.8], [52, 3.0], [51.92, 4.48]],
-            "SEESCHIFF",
+            "SEESCHIFF", "see",
         )
         # Binnenschiff Rotterdam -> Heilbronn
-        self.world_map.draw_route([[51.92, 4.48], [49.14, 9.22]], "BINNENSCHIFF")
+        self.world_map.draw_route([[51.92, 4.48], [49.14, 9.22]], "BINNENSCHIFF", "binnen")
         # Flugzeug Fremantle -> Frankfurt
-        self.world_map.draw_route([[-32.0, 115.8], [50.04, 8.56]], "FLUGZEUG")
+        self.world_map.draw_route([[-32.0, 115.8], [50.04, 8.56]], "FLUGZEUG", "luft")
         # LKW Frankfurt -> Heilbronn
-        self.world_map.draw_route([[50.04, 8.56], [49.14, 9.22]], "LKW")
+        self.world_map.draw_route([[50.04, 8.56], [49.14, 9.22]], "LKW", "lkw")

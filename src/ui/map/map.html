@@ -67,6 +67,9 @@
 
     var nodeLayer = L.layerGroup().addTo(map);
     var routeLayer = L.layerGroup().addTo(map);
+    var shipLayer = L.layerGroup().addTo(map);
+    var shipMarkers = {};
+    var routenPfade = {};   // Routen-ID -> Koordinatenliste
 
     // Wird von Python aufgerufen: nodes = [{id, name, lat, lon, color}, ...]
     function setNodes(nodes) {
@@ -85,8 +88,9 @@
     }
 
     // coords = [[lat, lon], ...], color = '#rrggbb'
-    function drawRoute(coords, color) {
+    function drawRoute(coords, color, id) {
       L.polyline(coords, { color: color, weight: 3 }).addTo(routeLayer);
+      if (id) { routenPfade[id] = coords; }
     }
 
     // Wird von Python aufgerufen: Namen der betroffenen Knoten und Laender
@@ -97,6 +101,51 @@
     }
 
     function clearRoutes() { routeLayer.clearLayers(); }
+
+    // Punkt auf einem Pfad bei Anteil f (0..1), nach Länge der Teilstücke
+    function punktAufPfad(pfad, f) {
+      if (!pfad || pfad.length === 0) { return null; }
+      f = Math.max(0, Math.min(1, f));
+      var laengen = [0], gesamt = 0;
+      for (var i = 1; i < pfad.length; i++) {
+        gesamt += Math.hypot(pfad[i][0] - pfad[i - 1][0], pfad[i][1] - pfad[i - 1][1]);
+        laengen.push(gesamt);
+      }
+      var ziel = f * gesamt;
+      for (var j = 1; j < pfad.length; j++) {
+        if (ziel <= laengen[j]) {
+          var teil = laengen[j] - laengen[j - 1];
+          var t = teil === 0 ? 0 : (ziel - laengen[j - 1]) / teil;
+          return [pfad[j - 1][0] + t * (pfad[j][0] - pfad[j - 1][0]),
+                  pfad[j - 1][1] + t * (pfad[j][1] - pfad[j - 1][1])];
+        }
+      }
+      return pfad[pfad.length - 1];
+    }
+
+    // Wird von Python aufgerufen: list = [{id, route, fortschritt, modus, ware, color}, ...]
+    function setShipments(list) {
+      var vorhanden = {};
+      list.forEach(function (s) {
+        var pos = punktAufPfad(routenPfade[s.route], s.fortschritt);
+        if (!pos) { return; }
+        vorhanden[s.id] = true;
+        var text = s.ware + ' (' + s.modus + '), ' + Math.round(s.fortschritt * 100) + ' %';
+        var m = shipMarkers[s.id];
+        if (!m) {
+          m = L.circleMarker(pos, { radius: 5, color: '#FFFFFF', weight: 1.5,
+                                    fillColor: s.color, fillOpacity: 1 }).addTo(shipLayer);
+          m.bindTooltip(text);
+          shipMarkers[s.id] = m;
+        } else {
+          m.setLatLng(pos);
+          m.setTooltipContent(text);
+        }
+      });
+      Object.keys(shipMarkers).forEach(function (id) {   // angekommene Sendungen entfernen
+        if (!vorhanden[id]) { shipLayer.removeLayer(shipMarkers[id]); delete shipMarkers[id]; }
+      });
+}
   </script>
 </body>
 </html>
