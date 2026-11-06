@@ -1,0 +1,29 @@
+[
+  {
+    "id": "rail_duisburg",
+    "name": "Duisburg Rail Terminal",
+    "country": "Germany",
+    "latitude": 51.4344,
+    "longitude": 6.7623,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_frankfurt",
+    "name": "Frankfurt Cargo Hub",
+    "country": "Germany",
+    "latitude": 50.1109,
+    "longitude": 8.6821,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_heilbronn",
+    "name": "Heilbronn Rail Terminal",
+    "country": "Germany",
+    "latitude": 49.1427,
+    "longitude": 9.2109,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  }
+]

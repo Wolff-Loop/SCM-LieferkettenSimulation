@@ -1,0 +1,56 @@
+[
+  {
+    "id": "supplier_miyota",
+    "name": "Citizen Miyota",
+    "country": "Japan",
+    "latitude": 31.8344,
+    "longitude": 131.3078,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_panasonic",
+    "name": "Panasonic Energy",
+    "country": "Japan",
+    "latitude": 34.7381,
+    "longitude": 135.5633,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_lens",
+    "name": "Lens Technology",
+    "country": "China",
+    "latitude": 28.2282,
+    "longitude": 113.0020,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_jabil",
+    "name": "Jabil Mexico",
+    "country": "Mexico",
+    "latitude": 20.7211,
+    "longitude": -103.3918,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_hlp",
+    "name": "HLP Leather",
+    "country": "South Africa",
+    "latitude": -33.0153,
+    "longitude": 27.9116,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_klabin",
+    "name": "Klabin",
+    "country": "Brazil",
+    "latitude": -24.3244,
+    "longitude": -50.6158,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  }
+]

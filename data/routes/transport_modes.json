@@ -1,0 +1,27 @@
+{
+  "TRUCK": {
+    "speed_kmh": 70,
+    "cost_per_km": 1.2,
+    "co2_per_tkm": 0.062
+  },
+  "RAIL": {
+    "speed_kmh": 60,
+    "cost_per_km": 0.4,
+    "co2_per_tkm": 0.018
+  },
+  "SHIP": {
+    "speed_kmh": 35,
+    "cost_per_km": 0.12,
+    "co2_per_tkm": 0.008
+  },
+  "AIR": {
+    "speed_kmh": 800,
+    "cost_per_km": 3.5,
+    "co2_per_tkm": 0.60
+  },
+  "BARGE": {
+    "speed_kmh": 15,
+    "cost_per_km": 0.2,
+    "co2_per_tkm": 0.03
+  }
+}

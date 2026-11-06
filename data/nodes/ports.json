@@ -1,0 +1,83 @@
+[
+  {
+    "id": "port_yokohama",
+    "name": "Port of Yokohama",
+    "country": "Japan",
+    "latitude": 35.4437,
+    "longitude": 139.6380,
+    "node_type": "PORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "port_kobe",
+    "name": "Port of Kobe",
+    "country": "Japan",
+    "latitude": 34.6901,
+    "longitude": 135.1955,
+    "node_type": "PORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "port_shanghai",
+    "name": "Port of Shanghai",
+    "country": "China",
+    "latitude": 31.2304,
+    "longitude": 121.4737,
+    "node_type": "PORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "port_veracruz",
+    "name": "Port of Veracruz",
+    "country": "Mexico",
+    "latitude": 19.1738,
+    "longitude": -96.1342,
+    "node_type": "PORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "port_durban",
+    "name": "Port of Durban",
+    "country": "South Africa",
+    "latitude": -29.8587,
+    "longitude": 31.0218,
+    "node_type": "PORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "port_santos",
+    "name": "Port of Santos",
+    "country": "Brazil",
+    "latitude": -23.9608,
+    "longitude": -46.3336,
+    "node_type": "PORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "port_rotterdam",
+    "name": "Port of Rotterdam",
+    "country": "Netherlands",
+    "latitude": 51.9244,
+    "longitude": 4.4777,
+    "node_type": "PORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "port_hamburg",
+    "name": "Port of Hamburg",
+    "country": "Germany",
+    "latitude": 53.5511,
+    "longitude": 9.9937,
+    "node_type": "PORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "port_singapore",
+    "name": "Port of Singapore",
+    "country": "Singapore",
+    "latitude": 1.3521,
+    "longitude": 103.8198,
+    "node_type": "PORT",
+    "status": "ACTIVE"
+  }
+]

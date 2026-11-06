@@ -1,0 +1,129 @@
+[
+  {
+    "source": "supplier_miyota",
+    "target": "port_yokohama",
+    "transport_mode": "TRUCK",
+    "distance_km": 150,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "supplier_panasonic",
+    "target": "port_kobe",
+    "transport_mode": "TRUCK",
+    "distance_km": 25,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "supplier_lens",
+    "target": "port_shanghai",
+    "transport_mode": "TRUCK",
+    "distance_km": 900,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "supplier_jabil",
+    "target": "port_veracruz",
+    "transport_mode": "TRUCK",
+    "distance_km": 800,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "supplier_hlp",
+    "target": "port_durban",
+    "transport_mode": "TRUCK",
+    "distance_km": 680,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "supplier_klabin",
+    "target": "port_santos",
+    "transport_mode": "TRUCK",
+    "distance_km": 520,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "port_yokohama",
+    "target": "port_singapore",
+    "transport_mode": "SHIP",
+    "distance_km": 5300,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "port_kobe",
+    "target": "port_singapore",
+    "transport_mode": "SHIP",
+    "distance_km": 5000,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "port_shanghai",
+    "target": "port_singapore",
+    "transport_mode": "SHIP",
+    "distance_km": 3800,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "port_singapore",
+    "target": "port_rotterdam",
+    "transport_mode": "SHIP",
+    "distance_km": 15400,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "port_veracruz",
+    "target": "port_rotterdam",
+    "transport_mode": "SHIP",
+    "distance_km": 9200,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "port_durban",
+    "target": "port_rotterdam",
+    "transport_mode": "SHIP",
+    "distance_km": 9800,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "port_santos",
+    "target": "port_rotterdam",
+    "transport_mode": "SHIP",
+    "distance_km": 9300,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "port_rotterdam",
+    "target": "rail_duisburg",
+    "transport_mode": "BARGE",
+    "distance_km": 230,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "rail_duisburg",
+    "target": "rail_heilbronn",
+    "transport_mode": "RAIL",
+    "distance_km": 340,
+    "status": "ACTIVE"
+  },
+
+  {
+    "source": "rail_heilbronn",
+    "target": "factory_heilbronn",
+    "transport_mode": "TRUCK",
+    "distance_km": 10,
+    "status": "ACTIVE"
+  }
+]

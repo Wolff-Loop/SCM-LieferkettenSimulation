@@ -1,0 +1,11 @@
+[
+  {
+    "id": "factory_heilbronn",
+    "name": "Watch Factory Heilbronn",
+    "country": "Germany",
+    "latitude": 49.1427,
+    "longitude": 9.2187,
+    "node_type": "FACTORY",
+    "status": "ACTIVE"
+  }
+]
