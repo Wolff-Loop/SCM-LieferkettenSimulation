@@ -1,18 +1,55 @@
-# SCM-LieferkettenSimulation
+# Global Supply Chain Digital Twin
 
-Simulation-based decision support system for global supply chain optimization.
+## Projektübersicht
 
-## Team
+Dieses Projekt wurde im Rahmen des Moduls Programmentwurf entwickelt.
 
-- Person 1: Network & Routing
-- Person 2: Simulation & Events
-- Person 3: Visualization & Application
+Ziel des Projekts ist die Entwicklung eines Digital Twins für globale Lieferketten. Das System simuliert Lieferanten, Transportnetzwerke und Störungen und bewertet deren Auswirkungen auf Kosten, Lieferzeit, CO₂-Emissionen und Resilienz.
 
-## Tech Stack
+Der aktuelle Stand beinhaltet:
 
+- weltweites Liefernetzwerk mit 500+ Knoten
+- multimodales Routing
+  - LKW
+  - Bahn
+  - Schiff
+  - Luftfracht
+  - Binnenschiff
+- Ersatzlieferanten (Multisourcing)
+- Routingstrategien
+  - Schnellste Route
+  - Niedrigste Kosten
+  - Niedrigste CO₂-Emissionen
+  - Höchste Resilienz
+- Störungssimulationen
+  - Lieferantenausfall
+  - Hafenstreik
+  - Krieg
+  - Suezkanalblockade
+- automatische Neuberechnung der Lieferketten
+- KPI-Auswertung
+  - Gesamtkosten
+  - Einkaufskosten
+  - Transportkosten
+  - Arbeitskosten
+  - Zollkosten
+  - CO₂
+  - Risiko
+  - Service Level
+
+---
+
+# Systemvoraussetzungen
+
+## Betriebssystem
+
+Getestet unter:
+
+- Windows 11
+
+## Python
+
+Empfohlen:
+
+```text
 - Python 3.12
-- PySide6
-- NetworkX
-- SQLite
-- Pandas
-- NumPy
