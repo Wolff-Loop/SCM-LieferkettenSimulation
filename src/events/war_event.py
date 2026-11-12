@@ -1,23 +1,7 @@
-from .base_event import Event
+from src.events.graph_events import NodeStatusEvent
 
 
-class WarEvent(Event):
-
-    def __init__(
-        self,
-        country: str,
-        severity: float = 1.0
-    ):
-
+class WarEvent(NodeStatusEvent):
+    def __init__(self, country, severity=1.0):
+        super().__init__("Krieg", country, severity)
         self.country = country
-        self.severity = severity
-
-        self.active = False
-
-    def apply(self):
-
-        self.active = True
-
-    def revert(self):
-
-        self.active = False

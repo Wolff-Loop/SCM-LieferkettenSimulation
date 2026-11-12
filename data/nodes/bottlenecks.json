@@ -1,0 +1,7 @@
+[
+ {"id":"choke_malacca","name":"Straße von Malakka","country":"International Waters","latitude":2.5,"longitude":101.5,"node_type":"BOTTLENECK","status":"ACTIVE"},
+ {"id":"choke_bab_el_mandeb","name":"Bab al-Mandab","country":"International Waters","latitude":12.58,"longitude":43.33,"node_type":"BOTTLENECK","status":"ACTIVE"},
+ {"id":"choke_suez","name":"Suezkanal","country":"Egypt","latitude":30.46,"longitude":32.35,"node_type":"BOTTLENECK","status":"ACTIVE"},
+ {"id":"choke_gibraltar","name":"Straße von Gibraltar","country":"International Waters","latitude":35.96,"longitude":-5.61,"node_type":"BOTTLENECK","status":"ACTIVE"},
+ {"id":"choke_cape_good_hope","name":"Kap der Guten Hoffnung","country":"South Africa","latitude":-34.36,"longitude":18.47,"node_type":"BOTTLENECK","status":"ACTIVE"}
+]

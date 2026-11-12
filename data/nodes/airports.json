@@ -1,0 +1,551 @@
+[
+  {
+    "id": "airport_tokyo",
+    "name": "Tokyo Haneda Cargo Airport",
+    "country": "Japan",
+    "latitude": 35.5494,
+    "longitude": 139.7798,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_kansai",
+    "name": "Kansai Cargo Airport",
+    "country": "Japan",
+    "latitude": 34.4347,
+    "longitude": 135.244,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_shanghai",
+    "name": "Shanghai Pudong Cargo Airport",
+    "country": "China",
+    "latitude": 31.1443,
+    "longitude": 121.8083,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_singapore",
+    "name": "Singapore Changi Cargo Airport",
+    "country": "Singapore",
+    "latitude": 1.3644,
+    "longitude": 103.9915,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_frankfurt",
+    "name": "Frankfurt Cargo Airport",
+    "country": "Germany",
+    "latitude": 50.0379,
+    "longitude": 8.5622,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_amsterdam",
+    "name": "Amsterdam Schiphol Cargo Airport",
+    "country": "Netherlands",
+    "latitude": 52.3105,
+    "longitude": 4.7683,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_mexico",
+    "name": "Mexico City Cargo Airport",
+    "country": "Mexico",
+    "latitude": 19.4361,
+    "longitude": -99.0719,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_sao_paulo",
+    "name": "São Paulo Cargo Airport",
+    "country": "Brazil",
+    "latitude": -23.4356,
+    "longitude": -46.4731,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_johannesburg",
+    "name": "Johannesburg Cargo Airport",
+    "country": "South Africa",
+    "latitude": -26.1337,
+    "longitude": 28.242,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_000",
+    "name": "Japan Cargo Airport 001",
+    "country": "Japan",
+    "latitude": 34.74906,
+    "longitude": 143.8229,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_001",
+    "name": "China Cargo Airport 002",
+    "country": "China",
+    "latitude": 28.75383,
+    "longitude": 125.64952,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_002",
+    "name": "Southeast Asia Cargo Airport 003",
+    "country": "Southeast Asia",
+    "latitude": 2.09786,
+    "longitude": 100.57335,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_003",
+    "name": "India Cargo Airport 004",
+    "country": "India",
+    "latitude": 16.00129,
+    "longitude": 72.10251,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_005",
+    "name": "Germany Cargo Airport 006",
+    "country": "Germany",
+    "latitude": 50.3922,
+    "longitude": 12.2164,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_006",
+    "name": "Benelux Cargo Airport 007",
+    "country": "Benelux",
+    "latitude": 50.79906,
+    "longitude": 1.18064,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_007",
+    "name": "France Cargo Airport 008",
+    "country": "France",
+    "latitude": 45.47183,
+    "longitude": 4.88943,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_008",
+    "name": "Iberia Cargo Airport 009",
+    "country": "Iberia",
+    "latitude": 41.69531,
+    "longitude": -11.1774,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_010",
+    "name": "Eastern Europe Cargo Airport 011",
+    "country": "Eastern Europe",
+    "latitude": 50.18268,
+    "longitude": 21.88828,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_011",
+    "name": "Mexico Cargo Airport 012",
+    "country": "Mexico",
+    "latitude": 22.16206,
+    "longitude": -98.04726,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_012",
+    "name": "US East Cargo Airport 013",
+    "country": "US East",
+    "latitude": 42.44332,
+    "longitude": -70.06748,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_014",
+    "name": "Brazil Cargo Airport 015",
+    "country": "Brazil",
+    "latitude": -24.75331,
+    "longitude": -48.23224,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_015",
+    "name": "South Africa Cargo Airport 016",
+    "country": "South Africa",
+    "latitude": -27.48246,
+    "longitude": 29.97748,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_018",
+    "name": "Japan Cargo Airport 019",
+    "country": "Japan",
+    "latitude": 37.5041,
+    "longitude": 137.19026,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_019",
+    "name": "China Cargo Airport 020",
+    "country": "China",
+    "latitude": 33.86132,
+    "longitude": 123.24351,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_020",
+    "name": "Southeast Asia Cargo Airport 021",
+    "country": "Southeast Asia",
+    "latitude": 2.8189,
+    "longitude": 102.80691,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_021",
+    "name": "India Cargo Airport 022",
+    "country": "India",
+    "latitude": 22.00485,
+    "longitude": 71.15138,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_023",
+    "name": "Germany Cargo Airport 024",
+    "country": "Germany",
+    "latitude": 48.87799,
+    "longitude": 7.37731,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_024",
+    "name": "Benelux Cargo Airport 025",
+    "country": "Benelux",
+    "latitude": 51.91932,
+    "longitude": 3.53989,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_025",
+    "name": "France Cargo Airport 026",
+    "country": "France",
+    "latitude": 47.35314,
+    "longitude": 2.69831,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_026",
+    "name": "Iberia Cargo Airport 027",
+    "country": "Iberia",
+    "latitude": 40.94684,
+    "longitude": -5.54302,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_028",
+    "name": "Eastern Europe Cargo Airport 029",
+    "country": "Eastern Europe",
+    "latitude": 49.4885,
+    "longitude": 22.77416,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_029",
+    "name": "Mexico Cargo Airport 030",
+    "country": "Mexico",
+    "latitude": 18.76882,
+    "longitude": -96.15431,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_030",
+    "name": "US East Cargo Airport 031",
+    "country": "US East",
+    "latitude": 41.37368,
+    "longitude": -71.86962,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_032",
+    "name": "Brazil Cargo Airport 033",
+    "country": "Brazil",
+    "latitude": -21.13136,
+    "longitude": -47.16182,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_033",
+    "name": "South Africa Cargo Airport 034",
+    "country": "South Africa",
+    "latitude": -31.38885,
+    "longitude": 32.11932,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_036",
+    "name": "Japan Cargo Airport 037",
+    "country": "Japan",
+    "latitude": 38.13633,
+    "longitude": 144.13984,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_037",
+    "name": "China Cargo Airport 038",
+    "country": "China",
+    "latitude": 29.25269,
+    "longitude": 117.09613,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_038",
+    "name": "Southeast Asia Cargo Airport 039",
+    "country": "Southeast Asia",
+    "latitude": 3.91671,
+    "longitude": 107.21458,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_039",
+    "name": "India Cargo Airport 040",
+    "country": "India",
+    "latitude": 19.66161,
+    "longitude": 75.51469,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_041",
+    "name": "Germany Cargo Airport 042",
+    "country": "Germany",
+    "latitude": 47.63313,
+    "longitude": 11.94675,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_042",
+    "name": "Benelux Cargo Airport 043",
+    "country": "Benelux",
+    "latitude": 50.59391,
+    "longitude": 6.37018,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_043",
+    "name": "France Cargo Airport 044",
+    "country": "France",
+    "latitude": 46.72186,
+    "longitude": 1.24069,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_044",
+    "name": "Iberia Cargo Airport 045",
+    "country": "Iberia",
+    "latitude": 35.36266,
+    "longitude": -10.84909,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_046",
+    "name": "Eastern Europe Cargo Airport 047",
+    "country": "Eastern Europe",
+    "latitude": 54.22906,
+    "longitude": 17.93496,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_047",
+    "name": "Mexico Cargo Airport 048",
+    "country": "Mexico",
+    "latitude": 15.85501,
+    "longitude": -97.46184,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_048",
+    "name": "US East Cargo Airport 049",
+    "country": "US East",
+    "latitude": 42.59962,
+    "longitude": -72.44535,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_050",
+    "name": "Brazil Cargo Airport 051",
+    "country": "Brazil",
+    "latitude": -25.43305,
+    "longitude": -47.20457,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_051",
+    "name": "South Africa Cargo Airport 052",
+    "country": "South Africa",
+    "latitude": -28.33249,
+    "longitude": 29.53999,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_054",
+    "name": "Japan Cargo Airport 055",
+    "country": "Japan",
+    "latitude": 33.14818,
+    "longitude": 136.77888,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_055",
+    "name": "China Cargo Airport 056",
+    "country": "China",
+    "latitude": 33.65811,
+    "longitude": 118.18778,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_056",
+    "name": "Southeast Asia Cargo Airport 057",
+    "country": "Southeast Asia",
+    "latitude": 3.77072,
+    "longitude": 100.88095,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_057",
+    "name": "India Cargo Airport 058",
+    "country": "India",
+    "latitude": 16.35223,
+    "longitude": 71.73473,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_059",
+    "name": "Germany Cargo Airport 060",
+    "country": "Germany",
+    "latitude": 48.01887,
+    "longitude": 8.69818,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_060",
+    "name": "Benelux Cargo Airport 061",
+    "country": "Benelux",
+    "latitude": 50.17794,
+    "longitude": 6.27649,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_061",
+    "name": "France Cargo Airport 062",
+    "country": "France",
+    "latitude": 49.5355,
+    "longitude": 3.85836,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_062",
+    "name": "Iberia Cargo Airport 063",
+    "country": "Iberia",
+    "latitude": 37.95106,
+    "longitude": -10.28659,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_064",
+    "name": "Eastern Europe Cargo Airport 065",
+    "country": "Eastern Europe",
+    "latitude": 53.03508,
+    "longitude": 17.61659,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_065",
+    "name": "Mexico Cargo Airport 066",
+    "country": "Mexico",
+    "latitude": 16.54157,
+    "longitude": -98.66561,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_066",
+    "name": "US East Cargo Airport 067",
+    "country": "US East",
+    "latitude": 42.18086,
+    "longitude": -74.87996,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_068",
+    "name": "Brazil Cargo Airport 069",
+    "country": "Brazil",
+    "latitude": -26.8984,
+    "longitude": -50.44342,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "airport_demo_069",
+    "name": "South Africa Cargo Airport 070",
+    "country": "South Africa",
+    "latitude": -28.50565,
+    "longitude": 35.41888,
+    "node_type": "AIRPORT",
+    "status": "ACTIVE"
+  }
+]

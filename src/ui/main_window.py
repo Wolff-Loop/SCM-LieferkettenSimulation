@@ -1,53 +1,37 @@
-from PySide6.QtWidgets import (QHBoxLayout, QLabel, QMainWindow, QVBoxLayout, QWidget)
+from PySide6.QtGui import QCursor
+from PySide6.QtWidgets import QHBoxLayout, QMainWindow, QMenu, QTabWidget, QVBoxLayout, QWidget
 
 from src.ui.dashboard import Dashboard
 from src.ui.world_map import WorldMap
 from src.ui.control_panel import ControlPanel
 from src.ui.scenario_panel import ScenarioPanel
 from src.ui.backend import Backend
-from PySide6.QtGui import QCursor
-from PySide6.QtWidgets import QMenu
-from PySide6.QtWidgets import QTabWidget
 from src.ui.analysis_view import AnalysisView
 
-import json
 
 class MainWindow(QMainWindow):
-    """Hauptfenster der Anwendung (Karte, Dashboard, Steuerung)."""
+    SZENARIEN_JE_TYP = {
+        "LIEFERANT": ["Lieferantenausfall"], "HAFEN": ["Hafenstreik"],
+        "FABRIK": ["Produktionsausfall"], "LAGER": ["Lagerausfall"],
+        "FLUGHAFEN": ["Flughafensperrung"], "ENGPASS": ["Sperrung"],
+    }
+    SZENARIEN_LAND = ["Krieg", "Naturkatastrophe", "Streik"]
 
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Supply Chain Digital Twin")
+        self.setWindowTitle("Supply Chain Digital Twin – 6 parallele Lieferketten")
         self.resize(1200, 800)
-
-        self.world_map = WorldMap()
-        self.dashboard = Dashboard()
-        self.controls = ControlPanel()
-        self.scenarios = ScenarioPanel()
-        self.analysis = AnalysisView()
-        self.backend = Backend()
-
-        rechts = QVBoxLayout()
-        rechts.addWidget(self.dashboard, 3)
-        rechts.addWidget(self.scenarios, 2)
-
-        oben = QHBoxLayout()
-        oben.addWidget(self.world_map, 3)
-        oben.addLayout(rechts, 1)
-
-        haupt = QVBoxLayout()
-        haupt.addLayout(oben, 5)
-        haupt.addWidget(self.controls, 1)
-
-        hauptseite = QWidget()
-        hauptseite.setLayout(haupt)
-
-        tabs = QTabWidget()
-        tabs.addTab(hauptseite, "Simulation")
-        tabs.addTab(self.analysis, "Auswertung")
-        self.setCentralWidget(tabs)
-
+        self.world_map, self.dashboard = WorldMap(), Dashboard()
+        self.controls, self.scenarios = ControlPanel(), ScenarioPanel()
+        self.analysis, self.backend = AnalysisView(), Backend()
         self.knoten_typen = {}
+
+        right = QVBoxLayout(); right.addWidget(self.dashboard, 3); right.addWidget(self.scenarios, 2)
+        top = QHBoxLayout(); top.addWidget(self.world_map, 3); top.addLayout(right, 1)
+        layout = QVBoxLayout(); layout.addLayout(top, 5); layout.addWidget(self.controls, 1)
+        page = QWidget(); page.setLayout(layout)
+        tabs = QTabWidget(); tabs.addTab(page, "Simulation"); tabs.addTab(self.analysis, "Auswertung")
+        self.setCentralWidget(tabs)
 
         self.controls.start_clicked.connect(self.backend.start)
         self.controls.pause_clicked.connect(self.backend.pause)
@@ -58,95 +42,57 @@ class MainWindow(QMainWindow):
         self.scenarios.scenario_toggled.connect(self.backend.set_scenario)
         self.backend.snapshot_ready.connect(self.dashboard.update_kpis)
         self.backend.snapshot_ready.connect(self.analysis.add_snapshot)
-        self.world_map.loadFinished.connect(self.zeige_testdaten)
-        self.world_map.map_clicked.connect(self.on_map_click)
         self.backend.snapshot_ready.connect(self.aktualisiere_markierungen)
         self.backend.snapshot_ready.connect(lambda *_: self.scenarios.aktualisiere(self.backend))
         self.backend.snapshot_ready.connect(self.aktualisiere_sendungen)
+        self.backend.routes_ready.connect(self.zeige_lieferketten)
+        self.backend.error_occurred.connect(self.zeige_fehler)
+        self.world_map.loadFinished.connect(self.zeige_netzwerk)
+        self.world_map.map_clicked.connect(self.on_map_click)
 
-    SZENARIEN_JE_TYP = {
-        "LIEFERANT": ["Lieferantenausfall"],
-        "HAFEN": ["Hafenstreik"],
-        "FABRIK": ["Produktionsausfall"],
-        "LAGER": ["Lagerausfall"],
-        "FLUGHAFEN": ["Flughafensperrung"],
-        "ENGPASS": ["Sperrung"]
-    }
+    def zeige_netzwerk(self, ok=True):
+        if not ok:
+            self.zeige_fehler("Die lokale Leaflet-Karte konnte nicht geladen werden.")
+            return
+        nodes = self.backend.get_map_nodes()
+        self.knoten_typen = {node["name"]: node["typ"] for node in nodes}
+        self.world_map.set_nodes(nodes)
+        self.backend.initialize()
 
-    SZENARIEN_LAND = ["Krieg", "Naturkatastrophe", "Streik"]
+    def zeige_lieferketten(self, result):
+        self.world_map.clear_routes()
+        for chain in result.get("chains", []):
+            for index, segment in enumerate(chain.get("segments", [])):
+                # Jede Teilstrecke erhält eine eindeutige ID. Dadurch wird keine
+                # maritime Geometrie durch eine direkte Luftlinie überschrieben.
+                route_id = f'chain_{chain["id"]}_{index}'
+                self.world_map.draw_route(segment["geometry"], segment["ui_mode"], route_id)
 
     def on_map_click(self, art, name):
         if art == "country":
-            titel = name
-            szenarien = self.SZENARIEN_LAND
+            title, scenarios = name, self.SZENARIEN_LAND
         else:
-            typ = self.knoten_typen.get(name)
-            titel = f"{name} ({typ})"
-            szenarien = self.SZENARIEN_JE_TYP.get(typ, [])
-        if not szenarien:
-            return
-        menu = QMenu(self)
-        menu.addSection(titel)
-        aktionen = {}
-        for s in szenarien:
-            a = menu.addAction(s)
-            a.setCheckable(True)
-            a.setChecked(self.backend.ist_aktiv(s, name))
-            aktionen[a] = s
-        gewaehlt = menu.exec(QCursor.pos())
-        if gewaehlt in aktionen:
-            s = aktionen[gewaehlt]
-            self.backend.set_scenario(s, not self.backend.ist_aktiv(s, name), ziel=name)
+            node_type = self.knoten_typen.get(name)
+            title, scenarios = f"{name} ({node_type})", self.SZENARIEN_JE_TYP.get(node_type, [])
+        if not scenarios: return
+        menu = QMenu(self); menu.addSection(title); actions = {}
+        for scenario in scenarios:
+            action = menu.addAction(scenario); action.setCheckable(True)
+            action.setChecked(self.backend.ist_aktiv(scenario, name)); actions[action] = scenario
+        selected = menu.exec(QCursor.pos())
+        if selected in actions:
+            scenario = actions[selected]
+            self.backend.set_scenario(scenario, not self.backend.ist_aktiv(scenario, name), ziel=name)
 
     def aktualisiere_markierungen(self, *_):
-        ziele = self.backend.aktive_ziele()
-        knoten = [z for z in ziele if z in self.knoten_typen]
-        laender = [z for z in ziele if z not in self.knoten_typen]
-        self.world_map.set_highlights(knoten, laender)
+        targets = self.backend.aktive_ziele()
+        self.world_map.set_highlights(
+            [target for target in targets if target in self.knoten_typen],
+            [target for target in targets if target not in self.knoten_typen],
+        )
 
     def aktualisiere_sendungen(self, snapshot):
         self.world_map.set_shipments(snapshot.get("sendungen", []))
 
-    def zeige_testdaten(self):
-        knoten = [
-            {"name": "Heilbronn", "lat": 49.14, "lon": 9.22, "typ": "FABRIK"},
-            {"name": "Lager Heilbronn", "lat": 49.17, "lon": 9.25, "typ": "LAGER"},
-            {"name": "Rotterdam", "lat": 51.92, "lon": 4.48, "typ": "HAFEN"},
-            {"name": "Fremantle", "lat": -32.0, "lon": 115.8, "typ": "LIEFERANT"},
-            {"name": "Frankfurt", "lat": 50.04, "lon": 8.56, "typ": "FLUGHAFEN"},
-            {"name": "Suezkanal", "lat": 30.5, "lon": 32.3, "typ": "ENGPASS"},
-            {"name": "Panamakanal", "lat": 9.1, "lon": -79.7, "typ": "ENGPASS"},
-        ]
-        self.knoten_typen = {k["name"]: k["typ"] for k in knoten}
-        self.world_map.set_nodes(knoten)
-
-        # Seeroute Fremantle -> Rotterdam
-        self.world_map.draw_route(
-            [[-32.0, 115.8], [-10, 95], [5, 78], [12.5, 54], [12.2, 47], [12.5, 43.5],
-            [20, 38], [27.5, 34], [29.9, 32.5], [31.3, 32.3], [34, 27], [35, 20],
-            [37.8, 9], [38, 0], [36.3, -2], [35.95, -5.5], [36.5, -9.5], [43.5, -9.8],
-            [48.5, -5.5], [49.9, -3], [50.5, 0.5], [51.4, 1.8], [52, 3.0], [51.92, 4.48]],
-            "SEESCHIFF", "see",
-        )
-        # Binnenschiff Rotterdam -> Heilbronn
-        self.world_map.draw_route([[51.92, 4.48], [49.14, 9.22]], "BINNENSCHIFF", "binnen")
-        # Flugzeug Fremantle -> Frankfurt
-        self.world_map.draw_route([[-32.0, 115.8], [50.04, 8.56]], "FLUGZEUG", "luft")
-        # LKW Frankfurt -> Heilbronn
-        self.world_map.draw_route([[50.04, 8.56], [49.14, 9.22]], "LKW", "lkw")
-
-    def zeige_echte_daten(self):
-
-        knoten = (
-            self.backend
-            .get_map_nodes()
-        )
-    
-        self.knoten_typen = {
-            k["name"]: k["typ"]
-            for k in knoten
-        }
-    
-        self.world_map.set_nodes(
-            knoten
-        )
+    def zeige_fehler(self, message):
+        self.statusBar().showMessage(message, 10000)

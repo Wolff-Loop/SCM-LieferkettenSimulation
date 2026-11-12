@@ -1,0 +1,17 @@
+{
+  "Germany": {"loaded_labor_cost_eur_h": 24.0, "duty_rate": 0.0, "risk_surcharge_rate": 0.005, "region": "EU"},
+  "Poland": {"loaded_labor_cost_eur_h": 12.0, "duty_rate": 0.0, "risk_surcharge_rate": 0.010, "region": "EU"},
+  "Italy": {"loaded_labor_cost_eur_h": 21.0, "duty_rate": 0.0, "risk_surcharge_rate": 0.008, "region": "EU"},
+  "Spain": {"loaded_labor_cost_eur_h": 18.0, "duty_rate": 0.0, "risk_surcharge_rate": 0.008, "region": "EU"},
+  "France": {"loaded_labor_cost_eur_h": 26.0, "duty_rate": 0.0, "risk_surcharge_rate": 0.006, "region": "EU"},
+  "Netherlands": {"loaded_labor_cost_eur_h": 28.0, "duty_rate": 0.0, "risk_surcharge_rate": 0.005, "region": "EU"},
+  "Belgium": {"loaded_labor_cost_eur_h": 29.0, "duty_rate": 0.0, "risk_surcharge_rate": 0.005, "region": "EU"},
+  "Japan": {"loaded_labor_cost_eur_h": 18.0, "duty_rate": 0.025, "risk_surcharge_rate": 0.012, "region": "APAC"},
+  "China": {"loaded_labor_cost_eur_h": 8.5, "duty_rate": 0.045, "risk_surcharge_rate": 0.035, "region": "APAC"},
+  "South Korea": {"loaded_labor_cost_eur_h": 16.0, "duty_rate": 0.025, "risk_surcharge_rate": 0.015, "region": "APAC"},
+  "Mexico": {"loaded_labor_cost_eur_h": 7.0, "duty_rate": 0.040, "risk_surcharge_rate": 0.030, "region": "AMERICAS"},
+  "Brazil": {"loaded_labor_cost_eur_h": 6.5, "duty_rate": 0.060, "risk_surcharge_rate": 0.035, "region": "AMERICAS"},
+  "South Africa": {"loaded_labor_cost_eur_h": 6.0, "duty_rate": 0.050, "risk_surcharge_rate": 0.035, "region": "AFRICA"},
+  "Singapore": {"loaded_labor_cost_eur_h": 22.0, "duty_rate": 0.0, "risk_surcharge_rate": 0.008, "region": "APAC"},
+  "Unknown": {"loaded_labor_cost_eur_h": 12.0, "duty_rate": 0.040, "risk_surcharge_rate": 0.030, "region": "OTHER"}
+}

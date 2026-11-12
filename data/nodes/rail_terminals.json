@@ -1,5 +1,887 @@
 [
   {
+    "id": "rail_demo_000",
+    "name": "Japan Rail Terminal 001",
+    "country": "Japan",
+    "latitude": 37.1574,
+    "longitude": 138.61218,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_001",
+    "name": "China Rail Terminal 002",
+    "country": "China",
+    "latitude": 29.40313,
+    "longitude": 118.16192,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_002",
+    "name": "Southeast Asia Rail Terminal 003",
+    "country": "Southeast Asia",
+    "latitude": 3.53583,
+    "longitude": 103.32576,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_003",
+    "name": "India Rail Terminal 004",
+    "country": "India",
+    "latitude": 20.76313,
+    "longitude": 71.67782,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_005",
+    "name": "Germany Rail Terminal 006",
+    "country": "Germany",
+    "latitude": 52.10535,
+    "longitude": 10.7918,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_006",
+    "name": "Benelux Rail Terminal 007",
+    "country": "Benelux",
+    "latitude": 53.525,
+    "longitude": 2.07088,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_007",
+    "name": "France Rail Terminal 008",
+    "country": "France",
+    "latitude": 50.25639,
+    "longitude": 1.18527,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_008",
+    "name": "Iberia Rail Terminal 009",
+    "country": "Iberia",
+    "latitude": 35.92797,
+    "longitude": -11.28563,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_010",
+    "name": "Eastern Europe Rail Terminal 011",
+    "country": "Eastern Europe",
+    "latitude": 52.23489,
+    "longitude": 23.98072,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_011",
+    "name": "Mexico Rail Terminal 012",
+    "country": "Mexico",
+    "latitude": 21.56631,
+    "longitude": -98.27796,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_012",
+    "name": "US East Rail Terminal 013",
+    "country": "US East",
+    "latitude": 38.08466,
+    "longitude": -76.91475,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_014",
+    "name": "Brazil Rail Terminal 015",
+    "country": "Brazil",
+    "latitude": -21.68699,
+    "longitude": -46.86682,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_015",
+    "name": "South Africa Rail Terminal 016",
+    "country": "South Africa",
+    "latitude": -31.35459,
+    "longitude": 32.52989,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_018",
+    "name": "Japan Rail Terminal 019",
+    "country": "Japan",
+    "latitude": 32.88482,
+    "longitude": 142.11943,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_019",
+    "name": "China Rail Terminal 020",
+    "country": "China",
+    "latitude": 31.03726,
+    "longitude": 118.94378,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_020",
+    "name": "Southeast Asia Rail Terminal 021",
+    "country": "Southeast Asia",
+    "latitude": -1.31304,
+    "longitude": 101.76266,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_021",
+    "name": "India Rail Terminal 022",
+    "country": "India",
+    "latitude": 16.65991,
+    "longitude": 73.29349,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_023",
+    "name": "Germany Rail Terminal 024",
+    "country": "Germany",
+    "latitude": 48.10875,
+    "longitude": 5.39181,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_024",
+    "name": "Benelux Rail Terminal 025",
+    "country": "Benelux",
+    "latitude": 49.50251,
+    "longitude": 7.11914,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_025",
+    "name": "France Rail Terminal 026",
+    "country": "France",
+    "latitude": 47.34992,
+    "longitude": -1.0526,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_026",
+    "name": "Iberia Rail Terminal 027",
+    "country": "Iberia",
+    "latitude": 39.74795,
+    "longitude": -9.19546,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_028",
+    "name": "Eastern Europe Rail Terminal 029",
+    "country": "Eastern Europe",
+    "latitude": 52.68048,
+    "longitude": 19.65071,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_029",
+    "name": "Mexico Rail Terminal 030",
+    "country": "Mexico",
+    "latitude": 17.59518,
+    "longitude": -98.63947,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_030",
+    "name": "US East Rail Terminal 031",
+    "country": "US East",
+    "latitude": 38.35317,
+    "longitude": -74.33411,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_032",
+    "name": "Brazil Rail Terminal 033",
+    "country": "Brazil",
+    "latitude": -21.86529,
+    "longitude": -45.80348,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_033",
+    "name": "South Africa Rail Terminal 034",
+    "country": "South Africa",
+    "latitude": -31.4148,
+    "longitude": 29.97419,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_036",
+    "name": "Japan Rail Terminal 037",
+    "country": "Japan",
+    "latitude": 37.91582,
+    "longitude": 138.13683,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_037",
+    "name": "China Rail Terminal 038",
+    "country": "China",
+    "latitude": 28.84501,
+    "longitude": 124.63843,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_038",
+    "name": "Southeast Asia Rail Terminal 039",
+    "country": "Southeast Asia",
+    "latitude": 4.09318,
+    "longitude": 102.37081,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_039",
+    "name": "India Rail Terminal 040",
+    "country": "India",
+    "latitude": 18.35581,
+    "longitude": 72.59541,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_041",
+    "name": "Germany Rail Terminal 042",
+    "country": "Germany",
+    "latitude": 48.09009,
+    "longitude": 11.7283,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_042",
+    "name": "Benelux Rail Terminal 043",
+    "country": "Benelux",
+    "latitude": 50.93361,
+    "longitude": 4.57419,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_043",
+    "name": "France Rail Terminal 044",
+    "country": "France",
+    "latitude": 47.20517,
+    "longitude": 2.35992,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_044",
+    "name": "Iberia Rail Terminal 045",
+    "country": "Iberia",
+    "latitude": 39.8751,
+    "longitude": -10.52824,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_046",
+    "name": "Eastern Europe Rail Terminal 047",
+    "country": "Eastern Europe",
+    "latitude": 54.48798,
+    "longitude": 19.039,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_047",
+    "name": "Mexico Rail Terminal 048",
+    "country": "Mexico",
+    "latitude": 17.11605,
+    "longitude": -98.14044,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_048",
+    "name": "US East Rail Terminal 049",
+    "country": "US East",
+    "latitude": 41.98968,
+    "longitude": -77.27301,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_050",
+    "name": "Brazil Rail Terminal 051",
+    "country": "Brazil",
+    "latitude": -22.409,
+    "longitude": -44.8164,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_051",
+    "name": "South Africa Rail Terminal 052",
+    "country": "South Africa",
+    "latitude": -29.72954,
+    "longitude": 34.13751,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_054",
+    "name": "Japan Rail Terminal 055",
+    "country": "Japan",
+    "latitude": 34.20446,
+    "longitude": 141.66868,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_055",
+    "name": "China Rail Terminal 056",
+    "country": "China",
+    "latitude": 28.8164,
+    "longitude": 119.63821,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_056",
+    "name": "Southeast Asia Rail Terminal 057",
+    "country": "Southeast Asia",
+    "latitude": 1.60096,
+    "longitude": 102.87674,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_057",
+    "name": "India Rail Terminal 058",
+    "country": "India",
+    "latitude": 19.24771,
+    "longitude": 74.81134,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_059",
+    "name": "Germany Rail Terminal 060",
+    "country": "Germany",
+    "latitude": 50.89973,
+    "longitude": 7.26072,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_060",
+    "name": "Benelux Rail Terminal 061",
+    "country": "Benelux",
+    "latitude": 52.16738,
+    "longitude": 3.71369,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_061",
+    "name": "France Rail Terminal 062",
+    "country": "France",
+    "latitude": 49.17658,
+    "longitude": -1.10799,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_062",
+    "name": "Iberia Rail Terminal 063",
+    "country": "Iberia",
+    "latitude": 39.46826,
+    "longitude": -11.84634,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_064",
+    "name": "Eastern Europe Rail Terminal 065",
+    "country": "Eastern Europe",
+    "latitude": 54.07005,
+    "longitude": 19.77306,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_065",
+    "name": "Mexico Rail Terminal 066",
+    "country": "Mexico",
+    "latitude": 16.40344,
+    "longitude": -96.0727,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_066",
+    "name": "US East Rail Terminal 067",
+    "country": "US East",
+    "latitude": 40.61958,
+    "longitude": -75.98884,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_068",
+    "name": "Brazil Rail Terminal 069",
+    "country": "Brazil",
+    "latitude": -24.56743,
+    "longitude": -48.12094,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_069",
+    "name": "South Africa Rail Terminal 070",
+    "country": "South Africa",
+    "latitude": -28.32505,
+    "longitude": 31.01592,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_072",
+    "name": "Japan Rail Terminal 073",
+    "country": "Japan",
+    "latitude": 36.58936,
+    "longitude": 138.62214,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_073",
+    "name": "China Rail Terminal 074",
+    "country": "China",
+    "latitude": 32.03873,
+    "longitude": 120.2373,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_074",
+    "name": "Southeast Asia Rail Terminal 075",
+    "country": "Southeast Asia",
+    "latitude": 0.65292,
+    "longitude": 103.87904,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_075",
+    "name": "India Rail Terminal 076",
+    "country": "India",
+    "latitude": 21.04802,
+    "longitude": 69.42957,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_077",
+    "name": "Germany Rail Terminal 078",
+    "country": "Germany",
+    "latitude": 49.90519,
+    "longitude": 5.38677,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_078",
+    "name": "Benelux Rail Terminal 079",
+    "country": "Benelux",
+    "latitude": 53.58341,
+    "longitude": 6.69537,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_079",
+    "name": "France Rail Terminal 080",
+    "country": "France",
+    "latitude": 49.73264,
+    "longitude": -1.1478,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_080",
+    "name": "Iberia Rail Terminal 081",
+    "country": "Iberia",
+    "latitude": 39.30536,
+    "longitude": -11.24295,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_082",
+    "name": "Eastern Europe Rail Terminal 083",
+    "country": "Eastern Europe",
+    "latitude": 51.82229,
+    "longitude": 20.86703,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_083",
+    "name": "Mexico Rail Terminal 084",
+    "country": "Mexico",
+    "latitude": 18.70276,
+    "longitude": -99.2424,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_084",
+    "name": "US East Rail Terminal 085",
+    "country": "US East",
+    "latitude": 43.45588,
+    "longitude": -76.72847,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_086",
+    "name": "Brazil Rail Terminal 087",
+    "country": "Brazil",
+    "latitude": -22.88844,
+    "longitude": -44.71743,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_087",
+    "name": "South Africa Rail Terminal 088",
+    "country": "South Africa",
+    "latitude": -30.06159,
+    "longitude": 32.74609,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_090",
+    "name": "Japan Rail Terminal 091",
+    "country": "Japan",
+    "latitude": 37.01378,
+    "longitude": 139.05191,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_091",
+    "name": "China Rail Terminal 092",
+    "country": "China",
+    "latitude": 33.0194,
+    "longitude": 119.04254,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_092",
+    "name": "Southeast Asia Rail Terminal 093",
+    "country": "Southeast Asia",
+    "latitude": 1.58809,
+    "longitude": 101.22173,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_093",
+    "name": "India Rail Terminal 094",
+    "country": "India",
+    "latitude": 19.14704,
+    "longitude": 69.4167,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_095",
+    "name": "Germany Rail Terminal 096",
+    "country": "Germany",
+    "latitude": 51.28552,
+    "longitude": 8.51861,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_096",
+    "name": "Benelux Rail Terminal 097",
+    "country": "Benelux",
+    "latitude": 51.73057,
+    "longitude": 3.37986,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_097",
+    "name": "France Rail Terminal 098",
+    "country": "France",
+    "latitude": 51.62707,
+    "longitude": 3.98911,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_098",
+    "name": "Iberia Rail Terminal 099",
+    "country": "Iberia",
+    "latitude": 36.34313,
+    "longitude": -12.34289,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_100",
+    "name": "Eastern Europe Rail Terminal 101",
+    "country": "Eastern Europe",
+    "latitude": 52.28563,
+    "longitude": 21.52744,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_101",
+    "name": "Mexico Rail Terminal 102",
+    "country": "Mexico",
+    "latitude": 18.40808,
+    "longitude": -96.56484,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_102",
+    "name": "US East Rail Terminal 103",
+    "country": "US East",
+    "latitude": 42.19191,
+    "longitude": -71.29641,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_104",
+    "name": "Brazil Rail Terminal 105",
+    "country": "Brazil",
+    "latitude": -24.95206,
+    "longitude": -49.39987,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_105",
+    "name": "South Africa Rail Terminal 106",
+    "country": "South Africa",
+    "latitude": -27.42267,
+    "longitude": 29.52162,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_108",
+    "name": "Japan Rail Terminal 109",
+    "country": "Japan",
+    "latitude": 36.2525,
+    "longitude": 139.72018,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_109",
+    "name": "China Rail Terminal 110",
+    "country": "China",
+    "latitude": 28.90661,
+    "longitude": 123.97321,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_110",
+    "name": "Southeast Asia Rail Terminal 111",
+    "country": "Southeast Asia",
+    "latitude": -1.26242,
+    "longitude": 101.81217,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_111",
+    "name": "India Rail Terminal 112",
+    "country": "India",
+    "latitude": 20.7691,
+    "longitude": 74.83775,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_113",
+    "name": "Germany Rail Terminal 114",
+    "country": "Germany",
+    "latitude": 47.39589,
+    "longitude": 9.90778,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_114",
+    "name": "Benelux Rail Terminal 115",
+    "country": "Benelux",
+    "latitude": 53.23019,
+    "longitude": 6.48688,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_115",
+    "name": "France Rail Terminal 116",
+    "country": "France",
+    "latitude": 48.28108,
+    "longitude": 3.09931,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_116",
+    "name": "Iberia Rail Terminal 117",
+    "country": "Iberia",
+    "latitude": 38.29122,
+    "longitude": -6.67196,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_118",
+    "name": "Eastern Europe Rail Terminal 119",
+    "country": "Eastern Europe",
+    "latitude": 52.48108,
+    "longitude": 22.49853,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_119",
+    "name": "Mexico Rail Terminal 120",
+    "country": "Mexico",
+    "latitude": 17.03257,
+    "longitude": -98.28182,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_120",
+    "name": "US East Rail Terminal 121",
+    "country": "US East",
+    "latitude": 41.77269,
+    "longitude": -73.36796,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_122",
+    "name": "Brazil Rail Terminal 123",
+    "country": "Brazil",
+    "latitude": -24.61576,
+    "longitude": -45.06447,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_123",
+    "name": "South Africa Rail Terminal 124",
+    "country": "South Africa",
+    "latitude": -30.93526,
+    "longitude": 28.52213,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_126",
+    "name": "Japan Rail Terminal 127",
+    "country": "Japan",
+    "latitude": 37.64115,
+    "longitude": 141.71599,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_127",
+    "name": "China Rail Terminal 128",
+    "country": "China",
+    "latitude": 32.10115,
+    "longitude": 121.78804,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_128",
+    "name": "Southeast Asia Rail Terminal 129",
+    "country": "Southeast Asia",
+    "latitude": 3.21288,
+    "longitude": 106.36339,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_demo_129",
+    "name": "India Rail Terminal 130",
+    "country": "India",
+    "latitude": 21.04385,
+    "longitude": 72.07225,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_tokyo",
+    "name": "Tokyo Freight Terminal",
+    "country": "Japan",
+    "latitude": 35.62,
+    "longitude": 139.75,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_kobe",
+    "name": "Kobe Freight Terminal",
+    "country": "Japan",
+    "latitude": 34.7,
+    "longitude": 135.2,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rail_shanghai",
+    "name": "Shanghai Rail Hub",
+    "country": "China",
+    "latitude": 31.2,
+    "longitude": 121.4,
+    "node_type": "RAIL_TERMINAL",
+    "status": "ACTIVE"
+  },
+  {
     "id": "rail_duisburg",
     "name": "Duisburg Rail Terminal",
     "country": "Germany",
@@ -9,11 +891,11 @@
     "status": "ACTIVE"
   },
   {
-    "id": "rail_frankfurt",
-    "name": "Frankfurt Cargo Hub",
+    "id": "rail_hamburg",
+    "name": "Hamburg Rail Terminal",
     "country": "Germany",
-    "latitude": 50.1109,
-    "longitude": 8.6821,
+    "latitude": 53.54,
+    "longitude": 10.0,
     "node_type": "RAIL_TERMINAL",
     "status": "ACTIVE"
   },

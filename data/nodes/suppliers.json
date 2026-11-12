@@ -6,7 +6,13 @@
     "latitude": 31.8344,
     "longitude": 131.3078,
     "node_type": "SUPPLIER",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "component_id": "movement",
+    "material_cost_per_unit_eur": 31.0,
+    "labor_hours_per_unit": 0.28,
+    "quality_yield": 0.985,
+    "capacity_units_per_day": 1400,
+    "economic_values_are_model_assumptions": true
   },
   {
     "id": "supplier_panasonic",
@@ -15,16 +21,28 @@
     "latitude": 34.7381,
     "longitude": 135.5633,
     "node_type": "SUPPLIER",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "component_id": "battery",
+    "material_cost_per_unit_eur": 1.1,
+    "labor_hours_per_unit": 0.035,
+    "quality_yield": 0.99,
+    "capacity_units_per_day": 5000,
+    "economic_values_are_model_assumptions": true
   },
   {
     "id": "supplier_lens",
     "name": "Lens Technology",
     "country": "China",
     "latitude": 28.2282,
-    "longitude": 113.0020,
+    "longitude": 113.002,
     "node_type": "SUPPLIER",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "component_id": "glass",
+    "material_cost_per_unit_eur": 7.82,
+    "labor_hours_per_unit": 0.18,
+    "quality_yield": 0.965,
+    "capacity_units_per_day": 2200,
+    "economic_values_are_model_assumptions": true
   },
   {
     "id": "supplier_jabil",
@@ -33,7 +51,13 @@
     "latitude": 20.7211,
     "longitude": -103.3918,
     "node_type": "SUPPLIER",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "component_id": "case",
+    "material_cost_per_unit_eur": 10.92,
+    "labor_hours_per_unit": 0.32,
+    "quality_yield": 0.97,
+    "capacity_units_per_day": 1800,
+    "economic_values_are_model_assumptions": true
   },
   {
     "id": "supplier_hlp",
@@ -42,7 +66,13 @@
     "latitude": -33.0153,
     "longitude": 27.9116,
     "node_type": "SUPPLIER",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "component_id": "strap",
+    "material_cost_per_unit_eur": 8.1,
+    "labor_hours_per_unit": 0.48,
+    "quality_yield": 0.955,
+    "capacity_units_per_day": 1200,
+    "economic_values_are_model_assumptions": true
   },
   {
     "id": "supplier_klabin",
@@ -51,6 +81,750 @@
     "latitude": -24.3244,
     "longitude": -50.6158,
     "node_type": "SUPPLIER",
+    "status": "ACTIVE",
+    "component_id": "packaging",
+    "material_cost_per_unit_eur": 2.46,
+    "labor_hours_per_unit": 0.12,
+    "quality_yield": 0.97,
+    "capacity_units_per_day": 4000,
+    "economic_values_are_model_assumptions": true
+  },
+  {
+    "id": "supplier_demo_000",
+    "name": "Japan Supplier 001",
+    "country": "Japan",
+    "latitude": 35.34653,
+    "longitude": 143.50859,
+    "node_type": "SUPPLIER",
     "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_001",
+    "name": "China Supplier 002",
+    "country": "China",
+    "latitude": 30.30243,
+    "longitude": 121.13619,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_002",
+    "name": "Southeast Asia Supplier 003",
+    "country": "Southeast Asia",
+    "latitude": 3.15713,
+    "longitude": 106.87078,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_003",
+    "name": "India Supplier 004",
+    "country": "India",
+    "latitude": 16.74322,
+    "longitude": 74.90644,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_005",
+    "name": "Germany Supplier 006",
+    "country": "Germany",
+    "latitude": 47.95899,
+    "longitude": 6.98038,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_006",
+    "name": "Benelux Supplier 007",
+    "country": "Benelux",
+    "latitude": 49.62207,
+    "longitude": 5.38046,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_007",
+    "name": "France Supplier 008",
+    "country": "France",
+    "latitude": 49.19186,
+    "longitude": -1.04512,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_008",
+    "name": "Iberia Supplier 009",
+    "country": "Iberia",
+    "latitude": 36.9151,
+    "longitude": -12.49263,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_010",
+    "name": "Eastern Europe Supplier 011",
+    "country": "Eastern Europe",
+    "latitude": 51.123,
+    "longitude": 23.69652,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_011",
+    "name": "Mexico Supplier 012",
+    "country": "Mexico",
+    "latitude": 22.03539,
+    "longitude": -96.72996,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_012",
+    "name": "US East Supplier 013",
+    "country": "US East",
+    "latitude": 41.47116,
+    "longitude": -76.00448,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_014",
+    "name": "Brazil Supplier 015",
+    "country": "Brazil",
+    "latitude": -22.65943,
+    "longitude": -46.60423,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_015",
+    "name": "South Africa Supplier 016",
+    "country": "South Africa",
+    "latitude": -32.06349,
+    "longitude": 32.74541,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_018",
+    "name": "Japan Supplier 019",
+    "country": "Japan",
+    "latitude": 37.43145,
+    "longitude": 142.01762,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_019",
+    "name": "China Supplier 020",
+    "country": "China",
+    "latitude": 32.40954,
+    "longitude": 122.82778,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_020",
+    "name": "Southeast Asia Supplier 021",
+    "country": "Southeast Asia",
+    "latitude": 3.31953,
+    "longitude": 100.92401,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_021",
+    "name": "India Supplier 022",
+    "country": "India",
+    "latitude": 17.69535,
+    "longitude": 72.10109,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_023",
+    "name": "Germany Supplier 024",
+    "country": "Germany",
+    "latitude": 47.29205,
+    "longitude": 7.72109,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_024",
+    "name": "Benelux Supplier 025",
+    "country": "Benelux",
+    "latitude": 53.12941,
+    "longitude": 1.0102,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_025",
+    "name": "France Supplier 026",
+    "country": "France",
+    "latitude": 51.15934,
+    "longitude": 2.70149,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_026",
+    "name": "Iberia Supplier 027",
+    "country": "Iberia",
+    "latitude": 39.61561,
+    "longitude": -9.19042,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_028",
+    "name": "Eastern Europe Supplier 029",
+    "country": "Eastern Europe",
+    "latitude": 53.17001,
+    "longitude": 19.29339,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_029",
+    "name": "Mexico Supplier 030",
+    "country": "Mexico",
+    "latitude": 17.49239,
+    "longitude": -93.44981,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_030",
+    "name": "US East Supplier 031",
+    "country": "US East",
+    "latitude": 39.19995,
+    "longitude": -73.66524,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_032",
+    "name": "Brazil Supplier 033",
+    "country": "Brazil",
+    "latitude": -25.70814,
+    "longitude": -49.07358,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_033",
+    "name": "South Africa Supplier 034",
+    "country": "South Africa",
+    "latitude": -27.98739,
+    "longitude": 28.44181,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_036",
+    "name": "Japan Supplier 037",
+    "country": "Japan",
+    "latitude": 35.96446,
+    "longitude": 138.03119,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_037",
+    "name": "China Supplier 038",
+    "country": "China",
+    "latitude": 30.79435,
+    "longitude": 118.07439,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_038",
+    "name": "Southeast Asia Supplier 039",
+    "country": "Southeast Asia",
+    "latitude": -1.07225,
+    "longitude": 104.84563,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_039",
+    "name": "India Supplier 040",
+    "country": "India",
+    "latitude": 21.47598,
+    "longitude": 76.56226,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_041",
+    "name": "Germany Supplier 042",
+    "country": "Germany",
+    "latitude": 51.40635,
+    "longitude": 6.87156,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_042",
+    "name": "Benelux Supplier 043",
+    "country": "Benelux",
+    "latitude": 53.77069,
+    "longitude": 7.28464,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_043",
+    "name": "France Supplier 044",
+    "country": "France",
+    "latitude": 51.82541,
+    "longitude": -0.28244,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_044",
+    "name": "Iberia Supplier 045",
+    "country": "Iberia",
+    "latitude": 37.22622,
+    "longitude": -12.59516,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_046",
+    "name": "Eastern Europe Supplier 047",
+    "country": "Eastern Europe",
+    "latitude": 50.32007,
+    "longitude": 20.08414,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_047",
+    "name": "Mexico Supplier 048",
+    "country": "Mexico",
+    "latitude": 22.14327,
+    "longitude": -94.16612,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_048",
+    "name": "US East Supplier 049",
+    "country": "US East",
+    "latitude": 39.39887,
+    "longitude": -77.15155,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_050",
+    "name": "Brazil Supplier 051",
+    "country": "Brazil",
+    "latitude": -23.5114,
+    "longitude": -42.64789,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_051",
+    "name": "South Africa Supplier 052",
+    "country": "South Africa",
+    "latitude": -28.05928,
+    "longitude": 29.19718,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_054",
+    "name": "Japan Supplier 055",
+    "country": "Japan",
+    "latitude": 34.13356,
+    "longitude": 138.36765,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_055",
+    "name": "China Supplier 056",
+    "country": "China",
+    "latitude": 33.60079,
+    "longitude": 120.39162,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_056",
+    "name": "Southeast Asia Supplier 057",
+    "country": "Southeast Asia",
+    "latitude": -1.38668,
+    "longitude": 105.98279,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_057",
+    "name": "India Supplier 058",
+    "country": "India",
+    "latitude": 17.43027,
+    "longitude": 75.08296,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_059",
+    "name": "Germany Supplier 060",
+    "country": "Germany",
+    "latitude": 51.60869,
+    "longitude": 10.29677,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_060",
+    "name": "Benelux Supplier 061",
+    "country": "Benelux",
+    "latitude": 49.90765,
+    "longitude": 5.62597,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_061",
+    "name": "France Supplier 062",
+    "country": "France",
+    "latitude": 48.85692,
+    "longitude": 4.47478,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_062",
+    "name": "Iberia Supplier 063",
+    "country": "Iberia",
+    "latitude": 38.86786,
+    "longitude": -10.03416,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_064",
+    "name": "Eastern Europe Supplier 065",
+    "country": "Eastern Europe",
+    "latitude": 49.36735,
+    "longitude": 23.33139,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_065",
+    "name": "Mexico Supplier 066",
+    "country": "Mexico",
+    "latitude": 21.97581,
+    "longitude": -94.95799,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_066",
+    "name": "US East Supplier 067",
+    "country": "US East",
+    "latitude": 39.08418,
+    "longitude": -76.219,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_068",
+    "name": "Brazil Supplier 069",
+    "country": "Brazil",
+    "latitude": -24.20206,
+    "longitude": -45.58505,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_069",
+    "name": "South Africa Supplier 070",
+    "country": "South Africa",
+    "latitude": -27.60606,
+    "longitude": 31.51338,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_072",
+    "name": "Japan Supplier 073",
+    "country": "Japan",
+    "latitude": 34.85139,
+    "longitude": 143.0166,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_073",
+    "name": "China Supplier 074",
+    "country": "China",
+    "latitude": 32.69936,
+    "longitude": 121.00956,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_074",
+    "name": "Southeast Asia Supplier 075",
+    "country": "Southeast Asia",
+    "latitude": -1.64008,
+    "longitude": 102.16814,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_075",
+    "name": "India Supplier 076",
+    "country": "India",
+    "latitude": 20.0737,
+    "longitude": 76.71632,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_077",
+    "name": "Germany Supplier 078",
+    "country": "Germany",
+    "latitude": 50.98077,
+    "longitude": 4.86953,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_078",
+    "name": "Benelux Supplier 079",
+    "country": "Benelux",
+    "latitude": 50.41892,
+    "longitude": 2.65679,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_079",
+    "name": "France Supplier 080",
+    "country": "France",
+    "latitude": 49.08734,
+    "longitude": 4.19454,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_080",
+    "name": "Iberia Supplier 081",
+    "country": "Iberia",
+    "latitude": 40.48776,
+    "longitude": -12.81274,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_082",
+    "name": "Eastern Europe Supplier 083",
+    "country": "Eastern Europe",
+    "latitude": 55.1735,
+    "longitude": 18.36733,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_demo_083",
+    "name": "Mexico Supplier 084",
+    "country": "Mexico",
+    "latitude": 19.51771,
+    "longitude": -98.93152,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "supplier_movement_backup_jp",
+    "name": "Seiko Instruments Backup",
+    "country": "Japan",
+    "latitude": 36.2,
+    "longitude": 138.1,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE",
+    "component_id": "movement",
+    "material_cost_per_unit_eur": 34.1,
+    "labor_hours_per_unit": 0.28,
+    "quality_yield": 0.975,
+    "capacity_units_per_day": 800,
+    "economic_values_are_model_assumptions": true
+  },
+  {
+    "id": "supplier_movement_backup_ch",
+    "name": "Hong Kong Movement Backup",
+    "country": "China",
+    "latitude": 22.32,
+    "longitude": 114.17,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE",
+    "component_id": "movement",
+    "material_cost_per_unit_eur": 25.42,
+    "labor_hours_per_unit": 0.28,
+    "quality_yield": 0.92,
+    "capacity_units_per_day": 700,
+    "economic_values_are_model_assumptions": true
+  },
+  {
+    "id": "supplier_battery_backup_kr",
+    "name": "Korea Battery Backup",
+    "country": "South Korea",
+    "latitude": 37.45,
+    "longitude": 126.7,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE",
+    "component_id": "battery",
+    "material_cost_per_unit_eur": 1.06,
+    "labor_hours_per_unit": 0.035,
+    "quality_yield": 0.975,
+    "capacity_units_per_day": 2500,
+    "economic_values_are_model_assumptions": true
+  },
+  {
+    "id": "supplier_battery_backup_de",
+    "name": "German Battery Backup",
+    "country": "Germany",
+    "latitude": 48.8,
+    "longitude": 9.2,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE",
+    "component_id": "battery",
+    "material_cost_per_unit_eur": 1.38,
+    "labor_hours_per_unit": 0.035,
+    "quality_yield": 0.995,
+    "capacity_units_per_day": 1200,
+    "economic_values_are_model_assumptions": true
+  },
+  {
+    "id": "supplier_glass_backup_jp",
+    "name": "Japan Glass Backup",
+    "country": "Japan",
+    "latitude": 35.2,
+    "longitude": 136.9,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE",
+    "component_id": "glass",
+    "material_cost_per_unit_eur": 9.52,
+    "labor_hours_per_unit": 0.18,
+    "quality_yield": 0.985,
+    "capacity_units_per_day": 900,
+    "economic_values_are_model_assumptions": true
+  },
+  {
+    "id": "supplier_glass_backup_de",
+    "name": "German Glass Backup",
+    "country": "Germany",
+    "latitude": 50.1,
+    "longitude": 8.7,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE",
+    "component_id": "glass",
+    "material_cost_per_unit_eur": 10.88,
+    "labor_hours_per_unit": 0.18,
+    "quality_yield": 0.99,
+    "capacity_units_per_day": 700,
+    "economic_values_are_model_assumptions": true
+  },
+  {
+    "id": "supplier_case_backup_pl",
+    "name": "Poland Case Backup",
+    "country": "Poland",
+    "latitude": 51.1,
+    "longitude": 17.0,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE",
+    "component_id": "case",
+    "material_cost_per_unit_eur": 12.42,
+    "labor_hours_per_unit": 0.32,
+    "quality_yield": 0.98,
+    "capacity_units_per_day": 1000,
+    "economic_values_are_model_assumptions": true
+  },
+  {
+    "id": "supplier_case_backup_de",
+    "name": "German Case Backup",
+    "country": "Germany",
+    "latitude": 48.1,
+    "longitude": 11.6,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE",
+    "component_id": "case",
+    "material_cost_per_unit_eur": 14.03,
+    "labor_hours_per_unit": 0.32,
+    "quality_yield": 0.99,
+    "capacity_units_per_day": 700,
+    "economic_values_are_model_assumptions": true
+  },
+  {
+    "id": "supplier_strap_backup_it",
+    "name": "Italy Strap Backup",
+    "country": "Italy",
+    "latitude": 45.4,
+    "longitude": 11.9,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE",
+    "component_id": "strap",
+    "material_cost_per_unit_eur": 10.98,
+    "labor_hours_per_unit": 0.48,
+    "quality_yield": 0.99,
+    "capacity_units_per_day": 800,
+    "economic_values_are_model_assumptions": true
+  },
+  {
+    "id": "supplier_strap_backup_es",
+    "name": "Spain Strap Backup",
+    "country": "Spain",
+    "latitude": 40.4,
+    "longitude": -3.7,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE",
+    "component_id": "strap",
+    "material_cost_per_unit_eur": 10.08,
+    "labor_hours_per_unit": 0.48,
+    "quality_yield": 0.98,
+    "capacity_units_per_day": 900,
+    "economic_values_are_model_assumptions": true
+  },
+  {
+    "id": "supplier_packaging_backup_de",
+    "name": "German Packaging Backup",
+    "country": "Germany",
+    "latitude": 49.5,
+    "longitude": 8.5,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE",
+    "component_id": "packaging",
+    "material_cost_per_unit_eur": 3.5,
+    "labor_hours_per_unit": 0.12,
+    "quality_yield": 0.992,
+    "capacity_units_per_day": 1800,
+    "economic_values_are_model_assumptions": true
+  },
+  {
+    "id": "supplier_packaging_backup_pl",
+    "name": "Poland Packaging Backup",
+    "country": "Poland",
+    "latitude": 52.2,
+    "longitude": 21.0,
+    "node_type": "SUPPLIER",
+    "status": "ACTIVE",
+    "component_id": "packaging",
+    "material_cost_per_unit_eur": 3.02,
+    "labor_hours_per_unit": 0.12,
+    "quality_yield": 0.985,
+    "capacity_units_per_day": 2200,
+    "economic_values_are_model_assumptions": true
   }
 ]

@@ -1,230 +1,153 @@
 from PySide6.QtCore import QObject, QTimer, Signal
+import networkx as nx
 
 from src.core.application import Application
+from src.events.event_manager import EventManager
+from src.events.war_event import WarEvent
+from src.events.strike_event import StrikeEvent
+from src.events.supplier_failure_event import SupplierFailureEvent
+from src.events.canal_blockage_event import CanalBlockageEvent
+from src.events.graph_events import NodeStatusEvent
+from src.analytics.kpi_engine import KPIEngine
 
 
 class Backend(QObject):
-    """
-    Schnittstelle zwischen UI und Fachlogik.
-
-    Diese Klasse behält das Interface des bisherigen FakeBackend bei,
-    verwendet aber das echte Netzwerk aus den JSON-Dateien.
-    """
-
     snapshot_ready = Signal(dict)
-    network_ready = Signal(dict)
-    route_ready = Signal(dict)
+    routes_ready = Signal(dict)
     error_occurred = Signal(str)
 
     def __init__(self):
         super().__init__()
-
         self.application = Application()
-
+        self.event_manager = EventManager(self.application)
         self.tag = 0
-        self.running = False
         self.strategie = "FASTEST"
-        self.aktive_szenarien = set()
+        self.current_routes = []
+        self.baseline_routes = []
         self.sendungen = []
-
+        self.naechste_id = 1
         self.timer = QTimer(self)
         self.timer.setInterval(1000)
         self.timer.timeout.connect(self.step)
 
     def initialize(self):
-        """
-        Übergibt Knoten und Kanten an die UI.
-        """
-        network = {
-            "nodes": self.application.get_nodes(),
-            "edges": self.application.get_edges(),
-            "statistics": (
-                self.application.get_network_statistics()
-            ),
-        }
-
-        self.network_ready.emit(network)
+        self.recalculate_routes()
         self.snapshot_ready.emit(self._snapshot())
 
     def get_map_nodes(self):
+        return self.application.get_map_nodes()
 
-        return (
-            self.application
-            .get_map_nodes()
-        )
-    
-    def start(self):
-        self.running = True
-        self.timer.start()
-
-    def pause(self):
-        self.running = False
-        self.timer.stop()
-
-    def stop(self):
-        self.running = False
-        self.timer.stop()
+    def start(self): self.timer.start()
+    def pause(self): self.timer.stop()
+    def stop(self): self.timer.stop()
 
     def reset(self):
         self.timer.stop()
-
-        self.running = False
         self.tag = 0
         self.sendungen.clear()
-        self.aktive_szenarien.clear()
-
+        self.naechste_id = 1
+        self.event_manager.clear()
+        self.application.reload_network()
+        self.event_manager = EventManager(self.application)
+        self.recalculate_routes()
         self.snapshot_ready.emit(self._snapshot())
 
     def step(self):
         self.tag += 1
+        self._move_shipments()
+        if self.tag % 5 == 1:
+            self._create_shipments()
         self.snapshot_ready.emit(self._snapshot())
 
-    def set_strategy(self, name: str):
-        allowed_strategies = {
-            "FASTEST",
-            "CHEAPEST",
-            "LOWEST_CO2",
-            "MOST_RESILIENT",
-        }
-
-        if name not in allowed_strategies:
-            self.error_occurred.emit(
-                f"Unbekannte Routingstrategie: {name}"
-            )
+    def set_strategy(self, name):
+        if name not in {"FASTEST", "CHEAPEST", "LOWEST_CO2", "MOST_RESILIENT"}:
+            self.error_occurred.emit(f"Unbekannte Routingstrategie: {name}")
             return
-
         self.strategie = name
+        self.recalculate_routes()
         self.snapshot_ready.emit(self._snapshot())
 
-    def calculate_route(
-        self,
-        source: str,
-        target: str,
-    ):
-        try:
-            route = self.application.calculate_route(
-                source,
-                target,
-            )
-
-            result = {
-                "source": source,
-                "target": target,
-                "strategy": self.strategie,
-                "nodes": route,
-            }
-
-            self.route_ready.emit(result)
-
-        except Exception as error:
-            self.error_occurred.emit(str(error))
-
-    def set_scenario(
-        self,
-        name: str,
-        aktiv: bool,
-        ziel: str | None = None,
-    ):
-        key = (name, ziel)
-
+    def set_scenario(self, name, aktiv, ziel=None):
+        event = self._make_event(name, ziel)
         if aktiv:
-            self.aktive_szenarien.add(key)
+            self.event_manager.activate(event)
         else:
-            self.aktive_szenarien.discard(key)
-
+            self.event_manager.deactivate(event.name, event.target)
+        self.recalculate_routes()
         self.snapshot_ready.emit(self._snapshot())
 
-    def ist_aktiv(
-        self,
-        name: str,
-        ziel: str | None = None,
-    ) -> bool:
-        return (name, ziel) in self.aktive_szenarien
+    def _make_event(self, name, ziel):
+        if name == "Krieg": return WarEvent(ziel)
+        if name in {"Streik", "Hafenstreik"}: return StrikeEvent(ziel)
+        if name == "Lieferantenausfall": return SupplierFailureEvent(ziel)
+        if name in {"Suezkanal-Blockade", "Sperrung"} and ziel in {None, "Suezkanal"}:
+            return CanalBlockageEvent()
+        if name in {"Naturkatastrophe", "Produktionsausfall", "Lagerausfall", "Flughafensperrung"}:
+            return NodeStatusEvent(name, ziel, 1.0)
+        return NodeStatusEvent(name, "__GLOBAL__", 0.0)
 
-    def aktive_ziele(self) -> set:
+    def recalculate_routes(self):
+        available, unavailable = [], []
+        for product in self.application.products:
+            try:
+                route = self.application.calculate_product_route(product, self.strategie)
+                available.append({**product, **route})
+            except (nx.NetworkXNoPath, nx.NodeNotFound) as error:
+                unavailable.append({**product, "error": str(error), "segments": []})
+
+        self.current_routes = available
+        # Referenz immer auf einem ungestörten, frisch geladenen Graphen berechnen.
+        reference_app = Application()
+        self.baseline_routes = reference_app.calculate_all_product_routes(self.strategie)
+        self.routes_ready.emit({"chains": available + unavailable})
+        if unavailable:
+            names = ", ".join(chain["name"] for chain in unavailable)
+            self.error_occurred.emit(f"Keine Route verfügbar für: {names}")
+
+    def ist_aktiv(self, name, ziel=None):
+        event = self._make_event(name, ziel)
+        return self.event_manager.is_active(event.name, event.target)
+
+    def aktive_ziele(self):
+        return {e.target for e in self.event_manager.get_active_events()
+                if e.target and e.target != "__GLOBAL__"}
+
+    def ist_irgendwo_aktiv(self, name):
+        return any(e.name == name for e in self.event_manager.get_active_events())
+
+    def _create_shipments(self):
+        for chain in self.current_routes:
+            first_mode = chain["segments"][0]["ui_mode"] if chain["segments"] else "LKW"
+            self.sendungen.append({
+                "id": self.naechste_id,
+                "route": f'chain_{chain["id"]}_0',
+                "fortschritt": 0.0,
+                "modus": first_mode,
+                "ware": chain["name"],
+            })
+            self.naechste_id += 1
+
+    def _move_shipments(self):
+        for shipment in self.sendungen:
+            shipment["fortschritt"] = min(1.0, shipment["fortschritt"] + 0.08)
+        self.sendungen = [shipment for shipment in self.sendungen if shipment["fortschritt"] < 1.0]
+
+    def _snapshot(self):
+        events = self.event_manager.get_active_events()
+        current = KPIEngine.calculate(self.current_routes, len(events), self.tag)
+        reference = KPIEngine.calculate(self.baseline_routes, 0, self.tag)
         return {
-            ziel
-            for _, ziel in self.aktive_szenarien
-            if ziel
+            "tag": self.tag, "strategy": self.strategie,
+            **current, "referenz": reference,
+            "sendungen": [dict(s) for s in self.sendungen],
+            "active_scenarios": [{"name": e.name, "target": e.target} for e in events],
+            "network_statistics": self.application.get_network_statistics(),
         }
 
-    def ist_irgendwo_aktiv(self, name: str) -> bool:
-        return any(
-            event_name == name
-            for event_name, _ in self.aktive_szenarien
-        )
+    def get_country_economics(self):
+        return self.application.get_country_economics()
 
-    def _snapshot(self) -> dict:
-        """
-        Einheitliches Datenformat für das Dashboard.
-
-        Die KPI-Logik ist zunächst einfach gehalten. Entscheidend ist,
-        dass die UI bereits mit dem echten Backend verbunden ist.
-        """
-        event_count = len(self.aktive_szenarien)
-
-        strategy_values = {
-            "FASTEST": {
-                "cost": 120.0,
-                "lead_time": 20.0,
-                "co2": 18.0,
-            },
-            "CHEAPEST": {
-                "cost": 90.0,
-                "lead_time": 34.0,
-                "co2": 14.0,
-            },
-            "LOWEST_CO2": {
-                "cost": 105.0,
-                "lead_time": 30.0,
-                "co2": 8.0,
-            },
-            "MOST_RESILIENT": {
-                "cost": 115.0,
-                "lead_time": 27.0,
-                "co2": 13.0,
-            },
-        }
-
-        values = strategy_values[self.strategie]
-        disruption_factor = 1 + (0.15 * event_count)
-
-        return {
-            "tag": self.tag,
-            "strategy": self.strategie,
-            "total_cost": round(
-                values["cost"] * disruption_factor,
-                1,
-            ),
-            "transport_cost": round(
-                values["cost"] * 0.6 * disruption_factor,
-                1,
-            ),
-            "co2_emissions": round(
-                values["co2"] * disruption_factor,
-                1,
-            ),
-            "lead_time": round(
-                values["lead_time"] + (4 * event_count),
-                1,
-            ),
-            "risk_score": min(
-                100,
-                20 + (15 * event_count),
-            ),
-            "service_level": max(
-                0,
-                98 - (6 * event_count),
-            ),
-            "sendungen": list(self.sendungen),
-            "active_scenarios": [
-                {
-                    "name": name,
-                    "target": target,
-                }
-                for name, target in self.aktive_szenarien
-            ],
-            "network_statistics": (
-                self.application.get_network_statistics()
-            ),
-        }
+    def set_country_economics(self, country, labor_cost=None, duty_rate=None, risk_rate=None):
+        self.application.set_country_economics(country, labor_cost, duty_rate, risk_rate)
+        self.recalculate_routes()
+        self.snapshot_ready.emit(self._snapshot())

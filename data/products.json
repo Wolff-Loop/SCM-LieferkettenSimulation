@@ -1,0 +1,92 @@
+[
+  {
+    "id": "movement",
+    "name": "Uhrwerk",
+    "supplier_ids": [
+      "supplier_miyota",
+      "supplier_movement_backup_jp",
+      "supplier_movement_backup_ch"
+    ],
+    "destination_id": "factory_heilbronn",
+    "color": "#8B5CF6",
+    "quantity": 1000,
+    "weight_kg_per_unit": 0.045,
+    "material_cost": 31.0,
+    "labor_hours": 0.28
+  },
+  {
+    "id": "battery",
+    "name": "Batterie",
+    "supplier_ids": [
+      "supplier_panasonic",
+      "supplier_battery_backup_kr",
+      "supplier_battery_backup_de"
+    ],
+    "destination_id": "factory_heilbronn",
+    "color": "#F59E0B",
+    "quantity": 1000,
+    "weight_kg_per_unit": 0.004,
+    "material_cost": 1.1,
+    "labor_hours": 0.035
+  },
+  {
+    "id": "glass",
+    "name": "Saphirglas / Display",
+    "supplier_ids": [
+      "supplier_lens",
+      "supplier_glass_backup_jp",
+      "supplier_glass_backup_de"
+    ],
+    "destination_id": "factory_heilbronn",
+    "color": "#06B6D4",
+    "quantity": 1000,
+    "weight_kg_per_unit": 0.03,
+    "material_cost": 8.5,
+    "labor_hours": 0.18
+  },
+  {
+    "id": "case",
+    "name": "Gehäuse",
+    "supplier_ids": [
+      "supplier_jabil",
+      "supplier_case_backup_pl",
+      "supplier_case_backup_de"
+    ],
+    "destination_id": "factory_heilbronn",
+    "color": "#EF4444",
+    "quantity": 1000,
+    "weight_kg_per_unit": 0.075,
+    "material_cost": 11.5,
+    "labor_hours": 0.32
+  },
+  {
+    "id": "strap",
+    "name": "Lederarmband",
+    "supplier_ids": [
+      "supplier_hlp",
+      "supplier_strap_backup_it",
+      "supplier_strap_backup_es"
+    ],
+    "destination_id": "factory_heilbronn",
+    "color": "#22C55E",
+    "quantity": 1000,
+    "weight_kg_per_unit": 0.03,
+    "material_cost": 9.0,
+    "labor_hours": 0.48
+  },
+  {
+    "id": "packaging",
+    "name": "Verpackung",
+    "supplier_ids": [
+      "supplier_klabin",
+      "supplier_packaging_backup_de",
+      "supplier_packaging_backup_pl"
+    ],
+    "destination_id": "factory_heilbronn",
+    "color": "#EC4899",
+    "quantity": 1000,
+    "weight_kg_per_unit": 0.09,
+    "material_cost": 2.8,
+    "labor_hours": 0.12
+  }
+]

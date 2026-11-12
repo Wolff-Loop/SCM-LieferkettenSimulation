@@ -1,0 +1,10 @@
+{
+  "currency": "EUR",
+  "target_country": "Germany",
+  "production_batch_watches": 1000,
+  "inventory_carrying_rate_per_year": 0.22,
+  "carbon_price_eur_per_tonne": 80.0,
+  "quality_failure_cost_eur_per_unit": 35.0,
+  "handling_cost_per_segment_eur": 35.0,
+  "notes": "Calibrated model assumptions for scenario analysis; supplier prices and duties are not contractual quotations."
+}

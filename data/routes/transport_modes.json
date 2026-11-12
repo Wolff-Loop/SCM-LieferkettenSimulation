@@ -1,27 +1,7 @@
 {
-  "TRUCK": {
-    "speed_kmh": 70,
-    "cost_per_km": 1.2,
-    "co2_per_tkm": 0.062
-  },
-  "RAIL": {
-    "speed_kmh": 60,
-    "cost_per_km": 0.4,
-    "co2_per_tkm": 0.018
-  },
-  "SHIP": {
-    "speed_kmh": 35,
-    "cost_per_km": 0.12,
-    "co2_per_tkm": 0.008
-  },
-  "AIR": {
-    "speed_kmh": 800,
-    "cost_per_km": 3.5,
-    "co2_per_tkm": 0.60
-  },
-  "BARGE": {
-    "speed_kmh": 15,
-    "cost_per_km": 0.2,
-    "co2_per_tkm": 0.03
-  }
+  "TRUCK": {"speed_kmh": 62.0, "cost_per_tkm": 0.095, "co2_per_tkm": 0.105, "terminal_hours": 2.0},
+  "RAIL": {"speed_kmh": 48.0, "cost_per_tkm": 0.045, "co2_per_tkm": 0.022, "terminal_hours": 8.0},
+  "SHIP": {"speed_kmh": 30.0, "cost_per_tkm": 0.018, "co2_per_tkm": 0.012, "terminal_hours": 36.0},
+  "AIR": {"speed_kmh": 780.0, "cost_per_tkm": 1.85, "co2_per_tkm": 0.602, "terminal_hours": 12.0},
+  "BARGE": {"speed_kmh": 14.0, "cost_per_tkm": 0.032, "co2_per_tkm": 0.031, "terminal_hours": 12.0}
 }

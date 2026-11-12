@@ -1,0 +1,857 @@
+[
+  {
+    "id": "warehouse_demo_000",
+    "name": "Japan Distribution Center 001",
+    "country": "Japan",
+    "latitude": 36.00208,
+    "longitude": 138.0897,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_001",
+    "name": "China Distribution Center 002",
+    "country": "China",
+    "latitude": 32.81731,
+    "longitude": 121.52058,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_002",
+    "name": "Southeast Asia Distribution Center 003",
+    "country": "Southeast Asia",
+    "latitude": 2.88617,
+    "longitude": 106.19678,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_003",
+    "name": "India Distribution Center 004",
+    "country": "India",
+    "latitude": 19.34996,
+    "longitude": 71.2666,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_005",
+    "name": "Germany Distribution Center 006",
+    "country": "Germany",
+    "latitude": 48.73718,
+    "longitude": 10.03567,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_006",
+    "name": "Benelux Distribution Center 007",
+    "country": "Benelux",
+    "latitude": 50.58459,
+    "longitude": 5.05599,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_007",
+    "name": "France Distribution Center 008",
+    "country": "France",
+    "latitude": 47.34965,
+    "longitude": 4.10838,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_008",
+    "name": "Iberia Distribution Center 009",
+    "country": "Iberia",
+    "latitude": 39.59142,
+    "longitude": -6.49675,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_010",
+    "name": "Eastern Europe Distribution Center 011",
+    "country": "Eastern Europe",
+    "latitude": 50.6704,
+    "longitude": 20.57454,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_011",
+    "name": "Mexico Distribution Center 012",
+    "country": "Mexico",
+    "latitude": 20.43351,
+    "longitude": -96.82995,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_012",
+    "name": "US East Distribution Center 013",
+    "country": "US East",
+    "latitude": 42.79574,
+    "longitude": -72.83534,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_014",
+    "name": "Brazil Distribution Center 015",
+    "country": "Brazil",
+    "latitude": -23.89145,
+    "longitude": -44.81952,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_015",
+    "name": "South Africa Distribution Center 016",
+    "country": "South Africa",
+    "latitude": -27.65259,
+    "longitude": 31.64988,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_018",
+    "name": "Japan Distribution Center 019",
+    "country": "Japan",
+    "latitude": 33.22786,
+    "longitude": 140.78596,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_019",
+    "name": "China Distribution Center 020",
+    "country": "China",
+    "latitude": 30.09473,
+    "longitude": 118.88835,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_020",
+    "name": "Southeast Asia Distribution Center 021",
+    "country": "Southeast Asia",
+    "latitude": -0.4487,
+    "longitude": 101.16021,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_021",
+    "name": "India Distribution Center 022",
+    "country": "India",
+    "latitude": 19.19178,
+    "longitude": 72.9893,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_023",
+    "name": "Germany Distribution Center 024",
+    "country": "Germany",
+    "latitude": 52.23885,
+    "longitude": 7.37814,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_024",
+    "name": "Benelux Distribution Center 025",
+    "country": "Benelux",
+    "latitude": 49.48476,
+    "longitude": 2.92817,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_025",
+    "name": "France Distribution Center 026",
+    "country": "France",
+    "latitude": 50.75563,
+    "longitude": 4.78615,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_026",
+    "name": "Iberia Distribution Center 027",
+    "country": "Iberia",
+    "latitude": 39.44439,
+    "longitude": -6.87552,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_028",
+    "name": "Eastern Europe Distribution Center 029",
+    "country": "Eastern Europe",
+    "latitude": 53.31253,
+    "longitude": 19.36563,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_029",
+    "name": "Mexico Distribution Center 030",
+    "country": "Mexico",
+    "latitude": 17.55095,
+    "longitude": -95.25608,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_030",
+    "name": "US East Distribution Center 031",
+    "country": "US East",
+    "latitude": 41.4301,
+    "longitude": -72.6384,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_032",
+    "name": "Brazil Distribution Center 033",
+    "country": "Brazil",
+    "latitude": -25.53348,
+    "longitude": -49.06512,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_033",
+    "name": "South Africa Distribution Center 034",
+    "country": "South Africa",
+    "latitude": -30.30468,
+    "longitude": 28.18864,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_036",
+    "name": "Japan Distribution Center 037",
+    "country": "Japan",
+    "latitude": 33.51063,
+    "longitude": 140.63317,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_037",
+    "name": "China Distribution Center 038",
+    "country": "China",
+    "latitude": 32.26245,
+    "longitude": 119.81875,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_038",
+    "name": "Southeast Asia Distribution Center 039",
+    "country": "Southeast Asia",
+    "latitude": 2.83316,
+    "longitude": 104.17792,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_039",
+    "name": "India Distribution Center 040",
+    "country": "India",
+    "latitude": 17.5767,
+    "longitude": 70.57382,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_041",
+    "name": "Germany Distribution Center 042",
+    "country": "Germany",
+    "latitude": 49.26978,
+    "longitude": 9.66659,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_042",
+    "name": "Benelux Distribution Center 043",
+    "country": "Benelux",
+    "latitude": 51.17888,
+    "longitude": 5.1681,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_043",
+    "name": "France Distribution Center 044",
+    "country": "France",
+    "latitude": 50.95041,
+    "longitude": 1.51494,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_044",
+    "name": "Iberia Distribution Center 045",
+    "country": "Iberia",
+    "latitude": 40.8177,
+    "longitude": -8.44122,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_046",
+    "name": "Eastern Europe Distribution Center 047",
+    "country": "Eastern Europe",
+    "latitude": 50.79264,
+    "longitude": 22.1058,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_047",
+    "name": "Mexico Distribution Center 048",
+    "country": "Mexico",
+    "latitude": 19.19236,
+    "longitude": -98.45643,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_048",
+    "name": "US East Distribution Center 049",
+    "country": "US East",
+    "latitude": 41.04128,
+    "longitude": -73.9019,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_050",
+    "name": "Brazil Distribution Center 051",
+    "country": "Brazil",
+    "latitude": -22.62492,
+    "longitude": -43.57392,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_051",
+    "name": "South Africa Distribution Center 052",
+    "country": "South Africa",
+    "latitude": -27.5271,
+    "longitude": 28.82655,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_054",
+    "name": "Japan Distribution Center 055",
+    "country": "Japan",
+    "latitude": 37.19702,
+    "longitude": 142.0018,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_055",
+    "name": "China Distribution Center 056",
+    "country": "China",
+    "latitude": 29.99995,
+    "longitude": 120.35126,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_056",
+    "name": "Southeast Asia Distribution Center 057",
+    "country": "Southeast Asia",
+    "latitude": 1.87429,
+    "longitude": 105.11816,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_057",
+    "name": "India Distribution Center 058",
+    "country": "India",
+    "latitude": 20.40296,
+    "longitude": 72.77429,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_059",
+    "name": "Germany Distribution Center 060",
+    "country": "Germany",
+    "latitude": 50.27232,
+    "longitude": 7.62211,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_060",
+    "name": "Benelux Distribution Center 061",
+    "country": "Benelux",
+    "latitude": 49.97167,
+    "longitude": 6.90554,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_061",
+    "name": "France Distribution Center 062",
+    "country": "France",
+    "latitude": 48.10651,
+    "longitude": 1.37265,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_062",
+    "name": "Iberia Distribution Center 063",
+    "country": "Iberia",
+    "latitude": 40.68962,
+    "longitude": -11.09593,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_064",
+    "name": "Eastern Europe Distribution Center 065",
+    "country": "Eastern Europe",
+    "latitude": 53.75723,
+    "longitude": 19.67962,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_065",
+    "name": "Mexico Distribution Center 066",
+    "country": "Mexico",
+    "latitude": 18.22764,
+    "longitude": -93.81208,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_066",
+    "name": "US East Distribution Center 067",
+    "country": "US East",
+    "latitude": 43.0891,
+    "longitude": -75.72619,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_068",
+    "name": "Brazil Distribution Center 069",
+    "country": "Brazil",
+    "latitude": -22.81447,
+    "longitude": -48.91015,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_069",
+    "name": "South Africa Distribution Center 070",
+    "country": "South Africa",
+    "latitude": -29.92763,
+    "longitude": 28.69475,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_072",
+    "name": "Japan Distribution Center 073",
+    "country": "Japan",
+    "latitude": 34.96928,
+    "longitude": 139.98006,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_073",
+    "name": "China Distribution Center 074",
+    "country": "China",
+    "latitude": 33.49452,
+    "longitude": 120.73047,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_074",
+    "name": "Southeast Asia Distribution Center 075",
+    "country": "Southeast Asia",
+    "latitude": -0.27984,
+    "longitude": 105.82961,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_075",
+    "name": "India Distribution Center 076",
+    "country": "India",
+    "latitude": 18.01522,
+    "longitude": 73.3739,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_077",
+    "name": "Germany Distribution Center 078",
+    "country": "Germany",
+    "latitude": 51.6722,
+    "longitude": 11.09869,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_078",
+    "name": "Benelux Distribution Center 079",
+    "country": "Benelux",
+    "latitude": 50.34577,
+    "longitude": 7.25213,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_079",
+    "name": "France Distribution Center 080",
+    "country": "France",
+    "latitude": 50.55554,
+    "longitude": 3.44107,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_080",
+    "name": "Iberia Distribution Center 081",
+    "country": "Iberia",
+    "latitude": 40.46293,
+    "longitude": -11.13955,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_082",
+    "name": "Eastern Europe Distribution Center 083",
+    "country": "Eastern Europe",
+    "latitude": 52.80726,
+    "longitude": 22.30459,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_083",
+    "name": "Mexico Distribution Center 084",
+    "country": "Mexico",
+    "latitude": 20.9748,
+    "longitude": -94.16178,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_084",
+    "name": "US East Distribution Center 085",
+    "country": "US East",
+    "latitude": 39.52397,
+    "longitude": -71.73324,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_086",
+    "name": "Brazil Distribution Center 087",
+    "country": "Brazil",
+    "latitude": -24.56706,
+    "longitude": -47.83525,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_087",
+    "name": "South Africa Distribution Center 088",
+    "country": "South Africa",
+    "latitude": -27.47888,
+    "longitude": 30.61086,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_090",
+    "name": "Japan Distribution Center 091",
+    "country": "Japan",
+    "latitude": 36.87827,
+    "longitude": 141.03889,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_091",
+    "name": "China Distribution Center 092",
+    "country": "China",
+    "latitude": 31.52306,
+    "longitude": 123.9721,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_092",
+    "name": "Southeast Asia Distribution Center 093",
+    "country": "Southeast Asia",
+    "latitude": 0.81872,
+    "longitude": 103.45097,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_093",
+    "name": "India Distribution Center 094",
+    "country": "India",
+    "latitude": 17.63995,
+    "longitude": 74.72862,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_095",
+    "name": "Germany Distribution Center 096",
+    "country": "Germany",
+    "latitude": 52.15172,
+    "longitude": 8.59583,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_096",
+    "name": "Benelux Distribution Center 097",
+    "country": "Benelux",
+    "latitude": 51.09118,
+    "longitude": 6.44805,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_097",
+    "name": "France Distribution Center 098",
+    "country": "France",
+    "latitude": 47.69748,
+    "longitude": 2.38877,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_098",
+    "name": "Iberia Distribution Center 099",
+    "country": "Iberia",
+    "latitude": 38.63421,
+    "longitude": -9.88033,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_100",
+    "name": "Eastern Europe Distribution Center 101",
+    "country": "Eastern Europe",
+    "latitude": 52.14601,
+    "longitude": 19.24562,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_101",
+    "name": "Mexico Distribution Center 102",
+    "country": "Mexico",
+    "latitude": 17.18176,
+    "longitude": -95.54275,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_102",
+    "name": "US East Distribution Center 103",
+    "country": "US East",
+    "latitude": 38.2241,
+    "longitude": -73.97133,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_104",
+    "name": "Brazil Distribution Center 105",
+    "country": "Brazil",
+    "latitude": -25.64404,
+    "longitude": -48.97551,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_105",
+    "name": "South Africa Distribution Center 106",
+    "country": "South Africa",
+    "latitude": -29.15998,
+    "longitude": 28.34897,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_108",
+    "name": "Japan Distribution Center 109",
+    "country": "Japan",
+    "latitude": 36.19434,
+    "longitude": 142.66081,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_109",
+    "name": "China Distribution Center 110",
+    "country": "China",
+    "latitude": 31.769,
+    "longitude": 121.04767,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_110",
+    "name": "Southeast Asia Distribution Center 111",
+    "country": "Southeast Asia",
+    "latitude": -0.59742,
+    "longitude": 103.74194,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_111",
+    "name": "India Distribution Center 112",
+    "country": "India",
+    "latitude": 20.81568,
+    "longitude": 70.87395,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_113",
+    "name": "Germany Distribution Center 114",
+    "country": "Germany",
+    "latitude": 51.89592,
+    "longitude": 6.40977,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_114",
+    "name": "Benelux Distribution Center 115",
+    "country": "Benelux",
+    "latitude": 51.09448,
+    "longitude": 1.97279,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_115",
+    "name": "France Distribution Center 116",
+    "country": "France",
+    "latitude": 49.43399,
+    "longitude": -0.08058,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_116",
+    "name": "Iberia Distribution Center 117",
+    "country": "Iberia",
+    "latitude": 39.24117,
+    "longitude": -6.38839,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_118",
+    "name": "Eastern Europe Distribution Center 119",
+    "country": "Eastern Europe",
+    "latitude": 50.13711,
+    "longitude": 23.01543,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_119",
+    "name": "Mexico Distribution Center 120",
+    "country": "Mexico",
+    "latitude": 21.23225,
+    "longitude": -93.42332,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_120",
+    "name": "US East Distribution Center 121",
+    "country": "US East",
+    "latitude": 40.19118,
+    "longitude": -74.2722,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_122",
+    "name": "Brazil Distribution Center 123",
+    "country": "Brazil",
+    "latitude": -23.00988,
+    "longitude": -45.5311,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_123",
+    "name": "South Africa Distribution Center 124",
+    "country": "South Africa",
+    "latitude": -30.21433,
+    "longitude": 32.02475,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_126",
+    "name": "Japan Distribution Center 127",
+    "country": "Japan",
+    "latitude": 34.0997,
+    "longitude": 139.79688,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_127",
+    "name": "China Distribution Center 128",
+    "country": "China",
+    "latitude": 29.02844,
+    "longitude": 118.82381,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_128",
+    "name": "Southeast Asia Distribution Center 129",
+    "country": "Southeast Asia",
+    "latitude": 0.85827,
+    "longitude": 104.98906,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "warehouse_demo_129",
+    "name": "India Distribution Center 130",
+    "country": "India",
+    "latitude": 17.54399,
+    "longitude": 70.42883,
+    "node_type": "WAREHOUSE",
+    "status": "ACTIVE"
+  }
+]
